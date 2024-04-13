@@ -82,21 +82,21 @@
                         </div>
                         <div class="modal-body">
                             <!-- registration form -->
-                            <form>
+                            <form id="registrationForm">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" placeholder="Username">
+                                    <input class="form-control" type="text" id="username" name="username" placeholder="Username" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <input class="form-control" type="password" id="password" name="password" required>
                                 </div>
                             </form>
                         </div>
                         <!-- register modal buttons -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success">Register</button>
+                            <button type="submit" class="btn btn-success">Register</button>
                         </div>
                     </div>
                 </div>
@@ -111,28 +111,29 @@
                         </div>
                         <div class="modal-body">
                             <!-- login form -->
-                            <form>
+                            <form id="loginForm">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" placeholder="Username">
+                                    <input class="form-control" type="text" id="loginUsername" name="username" placeholder="Username" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <input class="form-control" type="password" id="loginPassword" name="password" required>
                                 </div>
                             </form>
                         </div>
                         <!-- login modal buttons -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-outline-success">Log in</button>
+                            <button type="submit" class="btn btn-outline-success">Log in</button>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
-    
+
+
     <!-- dynamic content -->
     <main class="container-fluid">
         {% block content %}
@@ -140,23 +141,26 @@
     </main>
 
     <!-- footer -->
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 p-5 position-absolute bottom-0 w-100">
+    <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 p-5 position-absolute bottom-0 w-100">
         <!-- current year added with js -->
         <p class="col-md-4 mb-0 bold "><span id="footer-year"></span></p>
         <!-- footer logo -->
         <a href="/"
             class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-            <img class="w-50" src="{{url_for('static', filename='images/logo-ts.png')}}"
-                        alt="Wave and Leaf logo">
+            <img class="w-50" src="{{url_for('static', filename='images/logo-ts.png')}}" alt="Wave and Leaf logo">
         </a>
         <!-- footer social icons -->
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3"><a class="text-muted" href="#"><i class="fa-brands fa-facebook fa-lg"></i></a></li>
             <li class="ms-3"><a class="text-muted" href="#"><i class="fa-brands fa-instagram fa-lg"></i></a></li>
             <li class="ms-3"><a class="text-muted" href="#"><i class="fa-brands fa-x-twitter fa-lg"></i></a></li>
-          </ul>
+        </ul>
     </footer>
-    <!-- import bootstrap javascript -->
+    
+    <!-- import JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- import Bootstrap javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
