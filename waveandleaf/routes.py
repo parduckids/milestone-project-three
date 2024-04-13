@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify
+from flask import render_template, request, jsonify, session
 from waveandleaf import app, db
 from waveandleaf.models import User, Category, Recipe, DifficultyLevel
 # import bcrypt flask extension that provides bcrypt hashing utilities
@@ -14,7 +14,7 @@ def home():
 # _________________________ authentication ______________________________
 
 bcrypt = Bcrypt()
-
+app.secret_key = "secret"
 # register
 # create route for /register which will be triggered by the register button using js
 @app.route('/register', methods=['POST'])
@@ -47,11 +47,34 @@ def login():
     user = User.query.filter_by(username=username).first()
     # if the user exist, present the message
     if user and bcrypt.check_password_hash(user.password_hash, password):
-        
+        # store user id in session
+        session['user_id'] = user.id  
+        # store username in session
+        session['username'] = username  
         return jsonify({'message': 'Logged in successfully!'}), 200
     # if the user doesn't exist, show error
     return jsonify({'error': 'Invalid username or password'}), 401
 
+# return a boolean checking if the user logged in
+def is_logged_in():
+    return 'user_id' in session
+
+# this returns the username for the welcome message
+@app.route('/check-login', methods=['GET'])
+def check_login():
+    if is_logged_in():
+        return jsonify({'logged_in': True, 'username': session['username']})
+    else:
+        return jsonify({'logged_in': False})
+
+# the logout route removes the user from the session
+@app.route('/logout', methods=['POST'])
+def logout():
+    # remove user_id from session
+    session.pop('user_id', None)
+    # remove username from session
+    session.pop('username', None)
+    return jsonify({'message': 'Logged out successfully'}), 200
 
 
 

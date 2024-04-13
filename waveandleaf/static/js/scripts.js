@@ -9,9 +9,9 @@ document.getElementById("footer-year").textContent = "© " + currentYear + " Wav
 // modal auth
 
 // once the page is loaded successfully
-$(document).ready(function() {
+$(document).ready(function () {
     // use ajax post request to the /register route that's created with flask
-    $('#registrationModal .btn-success').click(function() {
+    $('#registrationModal .btn-success').click(function () {
         var username = $('#registrationModal #username').val();
         var password = $('#registrationModal #password').val();
         $.ajax({
@@ -22,14 +22,14 @@ $(document).ready(function() {
                 password: password
             },
             // hide modal and show alert if successful registration
-            success: function(response) {
+            success: function (response) {
                 alert(response.message);
                 $('#registrationModal').modal('hide');
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 // check if responseJSON is defined, use jsonified message that flask sends
-                if(xhr.responseJSON && xhr.responseJSON.error){
-                    alert(xhr.responseJSON);
+                if (xhr.responseJSON && xhr.responseJSON.error) {
+                    alert(xhr.responseJSON.error);
                 } else {
                     // general error message or parse the status or error thrown by jQuery
                     alert('Failed to register: ' + error);
@@ -38,7 +38,7 @@ $(document).ready(function() {
         });
     });
     // use ajax post request to the /login route that's created with flask
-    $('#loginModal .btn-outline-success').click(function() {
+    $('#loginModal .btn-outline-success').click(function () {
         var username = $('#loginModal #loginUsername').val();
         var password = $('#loginModal #loginPassword').val();
         $.ajax({
@@ -48,21 +48,47 @@ $(document).ready(function() {
                 username: username,
                 password: password
             },
-            // hide modal and show alert if successful registration
-            success: function(response) {
+            success: function (response) {
                 alert(response.message);
                 $('#loginModal').modal('hide');
-                // optionally, redirect to another page or update UI
+                // call this function to update UI based on login status
+                checkLoginStatus();
+
             },
-            error: function(xhr, status, error) {
-                // check if responseJSON is defined, use jsonified message that flask sends
-                if(xhr.responseJSON && xhr.responseJSON.error){
+            error: function (xhr) {
+                if (xhr.responseJSON && xhr.responseJSON.error) {
                     alert(xhr.responseJSON.error);
                 } else {
-                    // general error message or parse the status or error thrown by jQuery
-                    alert('Login failed: ' + error);
+                    alert('Login failed: ' + xhr.statusText);
                 }
             }
         });
     });
+
+    // log out function, when logout button clicked use the flask /logout route to log out 
+    $('#logoutButton').click(function () {
+        $.post('/logout', function (response) {
+            alert('Logged out successfully');
+            // update UI to reflect logged-out status
+            checkLoginStatus();
+        });
+    });
+
+    // modify the ui depending on if the user is logged in or not
+    function checkLoginStatus() {
+        $.get('/check-login', function (response) {
+            if (response.logged_in) {
+                $('#registerButton').hide();
+                $('#loginButton').hide();
+                $('#logoutButton').show();
+                $('#welcomeMessage').show();
+                $('#usernameSpan').text(response.username);
+            } else {
+                $('#registerButton').show();
+                $('#loginButton').show();
+                $('#logoutButton').hide();
+                $('#welcomeMessage').hide();
+            }
+        });
+    }
 });

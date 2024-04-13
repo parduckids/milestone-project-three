@@ -60,14 +60,16 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- login and register buttons -->
+                    <!-- login, register and log out buttons -->
                     <div class="button-container justify-content-end">
-                        <!-- todo: register button is removed when user logged in -->
-                        <button class="btn btn-success me-2" type="button" data-bs-toggle="modal"
-                            data-bs-target="#registrationModal">Register</button>
-                        <!-- todo: make log out button appear when user logged in instead of log in button -->
-                        <button class="btn btn-outline-success me-2 " data-bs-toggle="modal"
-                            data-bs-target="#loginModal" type="button">Login</button>
+                        <button class="btn btn-success me-2" id="registerButton" type="button" data-bs-toggle="modal" data-bs-target="#registrationModal">Register</button>
+                        <button class="btn btn-outline-success me-2" id="loginButton" data-bs-toggle="modal" data-bs-target="#loginModal" type="button">Login</button>
+                        <!-- log out button isn't visible when no one logged in -->
+                        <button class="btn btn-danger me-2" id="logoutButton" type="button" style="display:none;">Logout</button>
+                    </div>
+                    <!-- welcome message when the user is logged in -->
+                    <div id="welcomeMessage" style="display:none;">
+                        Welcome, <span id="usernameSpan"></span>!
                     </div>
                 </div>
             </div>
@@ -85,11 +87,11 @@
                             <form id="registrationForm">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input class="form-control" type="text" id="username" name="username" placeholder="Username" required>
+                                    <input class="form-control" type="text" id="username" name="username" placeholder="Create a username" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input class="form-control" type="password" id="password" name="password" required>
+                                    <input class="form-control" type="password" id="password" name="password" placeholder="Create a password" required>
                                 </div>
                             </form>
                         </div>
@@ -114,11 +116,11 @@
                             <form id="loginForm">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input class="form-control" type="text" id="loginUsername" name="username" placeholder="Username" required>
+                                    <input class="form-control" type="text" id="loginUsername" name="username" placeholder="Enter your username" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input class="form-control" type="password" id="loginPassword" name="password" required>
+                                    <input class="form-control" type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
                                 </div>
                             </form>
                         </div>
