@@ -11,6 +11,61 @@
     <title>Wave & Leaf</title>
 </head>
 <body>
-    <h1>Wave & Leaf</h1>
+    <!-- mobile responsive bootstrap navigation -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: transparent !important">
+        <div class="container-fluid">
+            <!-- navigation logo -->
+            <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='images/logo-ts.png')}}" alt=""></a>
+            <!-- navbar toggle for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="navbar-nav-container">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Recipes
+                            </a>
+                            <!-- dropdown for categories -->
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="category.html">Vegan</a></li>
+                                <li><a class="dropdown-item" href="category.html">Vegetarian</a></li>
+                                <li><a class="dropdown-item" href="category.html">Pescatarian</a></li>
+                            </ul>
+                        </li>
+                        <!-- upload recipes button -->
+                        <li class="nav-item mx-2">
+                            <!-- todo: disable or remove when not logged in -->
+                            <button class="btn btn-warning mx-2 disabled" type="button"
+                                onclick="location.href='/add_recipe.html';">Upload recipes</button>
+                        </li>
+                    </ul>
+                </div>
+                <!-- login and register buttons -->
+                <div class="button-container justify-content-end">
+                    <!-- todo: register button is removed when user logged in -->
+                    <button class="btn btn-success me-2" type="button" data-bs-toggle="modal"
+                        data-bs-target="#registrationModal">Register</button>
+                    <!-- todo: make log out button appear when user logged in instead of log in button -->
+                    <button class="btn btn-outline-success me-2 " data-bs-toggle="modal"
+                        data-bs-target="#loginModal" type="button">Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,4 +1,39 @@
-body{
-    /* test css */
-    background-color: green;
+/* navigation */
+
+.navbar {
+    background-color: trans;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.nav-link {
+    font-weight: 700 !important;
+    color: var(--deep-blue) !important;
+}
+
+.nav-link:hover {
+    filter: brightness(75%);
+}
+
+
+@media (min-width: 992px) {
+
+    .navbar-nav-container,
+    .button-container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .navbar-nav-container {
+        flex-grow: 0;
+
+    }
+}
+
+.img-fluid {
+    margin-bottom: 10px;
 }
