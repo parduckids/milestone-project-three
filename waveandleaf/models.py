@@ -1,4 +1,6 @@
 from waveandleaf import db
+# import datetime for recipe class
+from datetime import datetime
 
 
 class User(db.Model):
@@ -22,4 +24,39 @@ class Category(db.Model):
 
     def __repr__(self):
         return self.name
+
+# enum ensures the 'difficulty' field only accepts 'Easy', 'Medium', or 'Hard', improving data accuracy and making checks simpler.
+class DifficultyLevel(enum.Enum):
+    Easy = 'Easy'
+    Medium = 'Medium'
+    Hard = 'Hard'
+
+
+class Recipe(db.Model):
+    # schema for the Recipe model
+    id = db.Column(db.Integer, primary_key=True)
+
+    title = db.Column(db.String(255), nullable=False)
+    # using Enum for difficulty levels as it's easier to maintain
+    difficulty = db.Column(db.Enum(DifficultyLevel), nullable=False)
+    # URL for the main recipe image
+    image_url = db.Column(db.String(255))  
+    description = db.Column(db.Text, nullable=False)
+    # text field to list ingredients
+    ingredients = db.Column(db.Text, nullable=False)
+    # detailed preparation steps 
+    preparation_steps = db.Column(db.Text, nullable=False)  
+    cooking_time = db.Column(db.String(50))
+    # number of servings per recipe
+    servings = db.Column(db.Integer)
+    uploaded_time = db.Column(db.DateTime, default=datetime.utcnow)
+    edited_time = db.Column(db.DateTime, onupdate=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
+    # allergens as a comma-separated list
+    allergens = db.Column(db.String(255))  
+
+
+    def __repr__(self):
+        return self.title
 
