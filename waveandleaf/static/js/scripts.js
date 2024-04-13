@@ -83,11 +83,13 @@ $(document).ready(function () {
                 $('#logoutButton').show();
                 $('#welcomeMessage').show();
                 $('#usernameSpan').text(response.username);
+                $('#uploadRecipeButton').show();
             } else {
                 $('#registerButton').show();
                 $('#loginButton').show();
                 $('#logoutButton').hide();
                 $('#welcomeMessage').hide();
+                $('#uploadRecipeButton').hide();
             }
         });
     }

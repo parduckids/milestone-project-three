@@ -14,6 +14,7 @@ def home():
 # _________________________ authentication ______________________________
 
 bcrypt = Bcrypt()
+# todo: create a secret key for this in the env.py function
 app.secret_key = "secret"
 # register
 # create route for /register which will be triggered by the register button using js
@@ -66,7 +67,8 @@ def check_login():
         return jsonify({'logged_in': True, 'username': session['username']})
     else:
         return jsonify({'logged_in': False})
-
+        
+# log out
 # the logout route removes the user from the session
 @app.route('/logout', methods=['POST'])
 def logout():
