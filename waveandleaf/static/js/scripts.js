@@ -10,6 +10,7 @@ document.getElementById("footer-year").textContent = "© " + currentYear + " Wav
 
 // once the page is loaded successfully
 $(document).ready(function () {
+    checkLoginStatus();
     // use ajax post request to the /register route that's created with flask
     $('#registrationModal .btn-success').click(function () {
         var username = $('#registrationModal #username').val();
@@ -49,7 +50,6 @@ $(document).ready(function () {
                 password: password
             },
             success: function (response) {
-                alert(response.message);
                 $('#loginModal').modal('hide');
                 // call this function to update UI based on login status
                 checkLoginStatus();
@@ -67,10 +67,16 @@ $(document).ready(function () {
 
     // log out function, when logout button clicked use the flask /logout route to log out 
     $('#logoutButton').click(function () {
-        $.post('/logout', function (response) {
-            alert('Logged out successfully');
-            // update UI to reflect logged-out status
-            checkLoginStatus();
+        $.ajax({
+            type: 'POST',
+            url: '/logout',
+            success: function(data) {
+                window.location.href = data.redirect;  // Redirect to the URL provided by the server
+                alert("Logged out successfully!");
+            },
+            error: function() {
+                alert('Logout failed. Please try again.');
+            }
         });
     });
 

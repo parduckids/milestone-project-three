@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify, session
+from flask import render_template, request, jsonify, session, flash, redirect, url_for
 from waveandleaf import app, db
 from waveandleaf.models import User, Category, Recipe, DifficultyLevel
 # import bcrypt flask extension that provides bcrypt hashing utilities
@@ -8,6 +8,18 @@ from flask_bcrypt import Bcrypt
 @app.route("/")
 def home():
     return render_template("home.html")
+
+# _________________________ CRUD ______________________________
+
+# upload recipe page (C)
+@app.route('/upload-recipe')
+def upload_recipe():
+    if not is_logged_in():
+        return redirect(url_for('home'))  # Assuming 'index' is the view function for your main page
+    return render_template("upload-recipe.html")
+
+
+# _________________________ CRUD ENDS ______________________________
 
 
 
@@ -51,7 +63,7 @@ def login():
         # store user id in session
         session['user_id'] = user.id  
         # store username in session
-        session['username'] = username  
+        session['username'] = username
         return jsonify({'message': 'Logged in successfully!'}), 200
     # if the user doesn't exist, show error
     return jsonify({'error': 'Invalid username or password'}), 401
@@ -70,14 +82,12 @@ def check_login():
         
 # log out
 # the logout route removes the user from the session
+
 @app.route('/logout', methods=['POST'])
 def logout():
-    # remove user_id from session
-    session.pop('user_id', None)
-    # remove username from session
-    session.pop('username', None)
-    return jsonify({'message': 'Logged out successfully'}), 200
-
+    # this will clear all the data in the session including flash messages user_id and username
+    session.clear()  
+    return jsonify({'redirect': url_for('home')})
 
 
 # _________________________ authentication ends ______________________________
