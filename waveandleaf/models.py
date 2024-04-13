@@ -13,3 +13,13 @@ class User(db.Model):
         return self.username
 
 
+class Category(db.Model):
+    # schema for the Category model
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True, nullable=False)
+    # use lazy='dynamic' performance optimization
+    recipes = db.relationship('Recipe', backref='category', lazy='dynamic') 
+
+    def __repr__(self):
+        return self.name
+
