@@ -1,6 +1,7 @@
 from waveandleaf import db
 # import datetime for recipe class
 from datetime import datetime
+import enum
 
 
 class User(db.Model):
@@ -35,7 +36,6 @@ class DifficultyLevel(enum.Enum):
 class Recipe(db.Model):
     # schema for the Recipe model
     id = db.Column(db.Integer, primary_key=True)
-
     title = db.Column(db.String(255), nullable=False)
     # using Enum for difficulty levels as it's easier to maintain
     difficulty = db.Column(db.Enum(DifficultyLevel), nullable=False)
