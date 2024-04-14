@@ -2,8 +2,107 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-    <!-- test if it's working -->
-    <h1>Upload your recipe</h1>
+
+    <!-- upload recipe -->
+
+    <div class="container px-0 mt-5">
+        <div class="row w-100 m-0 justify-content-center mt-5 mb-5">
+            <div class="col submit-recipe" style="max-width: 100vw;">
+                <div class="text-background-upload p-5 shadow" style="border-radius: 15px;">
+                    <form>
+                        <h3 class="mb-4">Submit Your Recipe</h3>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <label for="recipeTitle" class="form-label">Recipe Title</label>
+                                    <input type="text" class="form-control" id="recipeTitle" placeholder="Delicious Vegan Brownies" name="title">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="recipeCategory" class="form-label">Recipe Category</label>
+                                    <select class="form-select" id="recipeCategory" name="category_id">
+                                        <option selected>Choose...</option>
+                                        <option value="Vegan">Vegan</option>
+                                        <option value="Vegetarian">Vegetarian</option>
+                                        <option value="Pescatarian">Pescatarian</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="recipeDifficulty" class="form-label">Recipe Difficulty</label>
+                                    <select class="form-select" id="recipeDifficulty" name="difficulty">
+                                        <option selected>Choose...</option>
+                                        <option value="Easy">Easy</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Hard">Hard</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="recipeCookingTime" class="form-label">Cooking Time</label>
+                                    <input type="text" class="form-control" id="recipeCookingTime" placeholder="e.g., 30 minutes" name="cooking_time">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="recipeServings" class="form-label">Servings</label>
+                                    <input type="number" class="form-control" id="recipeServings" placeholder="Number of servings" name="servings">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipeDescription" class="form-label">Recipe Description</label>
+                            <textarea class="form-control" id="recipeDescription" rows="3" placeholder="Describe your recipe..." name="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipeIngredients" class="form-label">Ingredients</label>
+                            <textarea class="form-control" id="recipeIngredients" rows="3" placeholder="List all ingredients..." name="ingredients"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipeInstructions" class="form-label">Instructions</label>
+                            <textarea class="form-control" id="recipeInstructions" rows="5" placeholder="Provide step-by-step instructions..." name="preparation_steps"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="recipeAllergens" class="form-label">Allergens</label>
+                            <select multiple class="form-select" id="recipeAllergens" name="allergens">
+                                <option value="Crustaceans">Crustaceans</option>
+                                <option value="Eggs">Eggs</option>
+                                <option value="Fish">Fish</option>
+                                <option value="Peanuts">Peanuts</option>
+                                <option value="Soybeans">Soybeans</option>
+                                <option value="Milk">Milk</option>
+                                <option value="Nuts">Nuts (e.g., almonds, hazelnuts, walnuts)</option>
+                                <option value="Celery">Celery</option>
+                                <option value="Mustard">Mustard</option>
+                                <option value="Sesame">Sesame</option>
+                                <option value="Sulfites">Sulfites</option>
+                                <option value="Lupin">Lupin</option>
+                                <option value="Molluscs">Molluscs</option>
+                            </select>
+                            <div class="form-text">
+                                Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="recipeImageURL" class="form-label">Recipe Image URL</label>
+                            <input type="url" class="form-control" id="recipeImageURL" placeholder="https://" name="image_url">
+                            <div class="form-text">
+                                Use <a href="https://imgbb.com" target="_blank">https://postimages.org/</a> to upload your image. Copy and Paste the direct link.
+                                (Preferred image size: 1280x1080)
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Recipe</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

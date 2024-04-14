@@ -15,11 +15,18 @@ class User(db.Model):
     def __repr__(self):
         return self.username
 
+# enum ensures the 'category' field only accepts 'Vegan', 'Vegetarian', or 'Pescatarian', improving data accuracy and making checks simpler.
+class CategoryName(enum.Enum):
+    Vegan = 'Vegan'
+    Vegetarian = 'Vegetarian'
+    Pescatarian = 'Pescatarian'
+
 
 class Category(db.Model):
     # schema for the Category model
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), unique=True, nullable=False)
+    # using Enum for category names as it's easier to maintain
+    name = db.Column(db.Enum(CategoryName), unique=True, nullable=False)
     # use lazy='dynamic' performance optimization
     recipes = db.relationship('Recipe', backref='category', lazy='dynamic') 
 

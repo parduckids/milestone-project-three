@@ -20,7 +20,7 @@
     <header>
         <!-- mobile responsive bootstrap navigation -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: transparent !important">
-            <div class="container-fluid">
+            <div class="container">
                 <!-- navigation logo -->
                 <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='images/logo-ts.png')}}"
                         alt="Wave and Leaf logo"></a>
@@ -72,7 +72,7 @@
                     </div>
                     <!-- welcome message when the user is logged in -->
                     <div id="welcomeMessage" style="display:none;">
-                        Welcome, <span id="usernameSpan"></span>!
+                        Hey, <span id="usernameSpan"></span>!
                     </div>
                 </div>
             </div>
@@ -142,14 +142,14 @@
         </nav>
     </header>
     <!-- dynamic content -->
-    <main class="container-fluid">
+    <main class="container">
         {% block content %}
         {% endblock %}
     </main>
 
     <!-- footer -->
     <footer
-        class="d-flex flex-wrap justify-content-between align-items-center py-3 p-5 position-absolute bottom-0 w-100">
+        class=" container d-flex flex-wrap justify-content-between align-items-center py-3 p-5  w-100">
         <!-- current year added with js -->
         <p class="col-md-4 mb-0 bold "><span id="footer-year"></span></p>
         <!-- footer logo -->
