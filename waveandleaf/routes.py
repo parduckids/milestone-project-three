@@ -10,18 +10,28 @@ from flask_bcrypt import Bcrypt
 def home():
     return render_template("home.html")
 
+# about us page
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+# categories
+
+# vegan category page
 @app.route('/vegan')
 def vegan_recipes():
     category = Category.query.filter_by(name=CategoryName.Vegan).first()
     vegan_recipes = Recipe.query.filter_by(category_id=1).all()
     return render_template('vegan_recipes.html', vegan_recipes=vegan_recipes)
 
+# vegetarian category page
 @app.route('/vegetarian')
 def vegetarian_recipes():
     category = Category.query.filter_by(name=CategoryName.Vegetarian).first()
     vegetarian_recipes = Recipe.query.filter_by(category_id=2).all()
     return render_template('vegetarian_recipes.html', vegetarian_recipes=vegetarian_recipes)
 
+# pescatarian category page
 @app.route('/pescatarian')
 def pescatarian_recipes():
     category = Category.query.filter_by(name=CategoryName.Pescatarian).first()
