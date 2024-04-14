@@ -1,3 +1,4 @@
+import os
 from flask import render_template, request, jsonify, session, flash, redirect, url_for
 from waveandleaf import app, db
 from waveandleaf.models import User, Category, Recipe, DifficultyLevel
@@ -15,7 +16,7 @@ def home():
 @app.route('/upload-recipe')
 def upload_recipe():
     if not is_logged_in():
-        return redirect(url_for('home'))  # Assuming 'index' is the view function for your main page
+        return redirect(url_for('home'))
     return render_template("upload-recipe.html")
 
 
@@ -27,7 +28,7 @@ def upload_recipe():
 
 bcrypt = Bcrypt()
 # todo: create a secret key for this in the env.py function
-app.secret_key = "secret"
+app.secret_key = os.environ.get("BCRYPT_SECRET_KEY")
 # register
 # create route for /register which will be triggered by the register button using js
 @app.route('/register', methods=['POST'])
