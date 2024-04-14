@@ -4,7 +4,14 @@ const currentYear = new Date().getFullYear();
 // user id "footer-year" and set its text content to the current year
 document.getElementById("footer-year").textContent = "© " + currentYear + " Wave & Leaf";
 
+// init Select2 multiple selection dropdown for allergens
 
+$('#recipeAllergens').select2({
+    // setting the placeholder when no option is selected
+    placeholder: "Choose allergens contained in this recipe", 
+    // clear the placeholder once there is an option selected
+    allowClear: true 
+});
 
 // modal auth
 

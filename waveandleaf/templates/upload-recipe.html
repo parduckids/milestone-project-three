@@ -78,7 +78,10 @@
                         <!-- allergens -->
                         <div class="mb-4">
                             <label for="recipeAllergens" class="form-label">Allergens</label>
-                            <select multiple class="form-select" id="recipeAllergens" name="allergens" required>
+                            <!-- use Select2 jquery replacement for multiple selection -->
+                            <select multiple="multiple" class="form-select" id="recipeAllergens" name="allergens" required>
+                                <!-- the empty option is required for Select2 placeholder -->
+                                <option></option>
                                 <option value="Crustaceans">Crustaceans</option>
                                 <option value="Eggs">Eggs</option>
                                 <option value="Fish">Fish</option>
@@ -93,9 +96,6 @@
                                 <option value="Lupin">Lupin</option>
                                 <option value="Molluscs">Molluscs</option>
                             </select>
-                            <div class="form-text">
-                                Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.
-                            </div>
                         </div>
                         <!-- recipe image -->
                         <div class="mb-4">
