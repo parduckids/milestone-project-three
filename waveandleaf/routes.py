@@ -19,14 +19,14 @@ def vegan_recipes():
 @app.route('/vegetarian')
 def vegetarian_recipes():
     category = Category.query.filter_by(name=CategoryName.Vegetarian).first()
-    recipes = Recipe.query.filter_by(category_id=category.id).all()
-    return render_template('vegetarian_recipes.html', recipes=recipes)
+    vegetarian_recipes = Recipe.query.filter_by(category_id=2).all()
+    return render_template('vegetarian_recipes.html', vegetarian_recipes=vegetarian_recipes)
 
 @app.route('/pescatarian')
 def pescatarian_recipes():
     category = Category.query.filter_by(name=CategoryName.Pescatarian).first()
-    recipes = Recipe.query.filter_by(category_id=category.id).all()
-    return render_template('pescatarian_recipes.html', recipes=recipes)
+    pescatarian_recipes = Recipe.query.filter_by(category_id=3).all()
+    return render_template('pescatarian_recipes.html', pescatarian_recipes=pescatarian_recipes)
 
 
 # _________________________ CRUD ______________________________

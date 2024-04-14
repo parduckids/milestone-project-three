@@ -2,8 +2,36 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-    <!-- test if it's working -->
-    <h1>Pescatarian Recipes</h1>
+    <!-- pescatarian recipes -->
+    <div class="row m-5">
+        <!-- page title -->
+        <h1 class="text-center m-3">Pescatarian Recipes</h1>
+        {% for recipe in pescatarian_recipes %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <!-- using bootstrap cards for presenting the recipes -->
+            <div class="card">
+                <img src="{{recipe.image_url}}" class="card-img-top recipe-image" alt="...">
+                <div class="card-body">
+                    <!-- todo: add recipe title -->
+                    <h5 class="card-title">{{recipe.title}}</h5>
+                    <!-- todo: add recipe description -->
+                    <p class="card-text">{{recipe.description}}</p>
+                    <!-- if the recipe wasn't edited before, use the upload time instead -->
+                    <p class="card-text"><small class="text-body-secondary">Last updated: 
+                        {% if recipe.edited_time %}
+                            {{ recipe.edited_time.strftime('%Y-%m-%d %H:%M') }}
+                        {% else %}
+                            {{ recipe.uploaded_time.strftime('%Y-%m-%d %H:%M') }}
+                        {% endif %}
+                    </small></p>
+                    <p class="card-text">Created by: {{recipe.user.username}}</p>
+                    <!-- todo: forward user to the actual recipe page  -->
+                    <a href="#" class="btn btn-primary">Go to the recipe</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
