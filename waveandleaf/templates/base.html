@@ -20,10 +20,10 @@
     <title>Wave & Leaf</title>
 </head>
 
-<body>
+<body class="{{ body_class | default('default-body-class', true) }}">
     <header>
         <!-- mobile responsive bootstrap navigation -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: transparent !important">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
             <div class="container">
                 <!-- navigation logo -->
                 <a class="navbar-brand" href="{{ url_for('home') }}"><img
@@ -154,7 +154,7 @@
     </main>
 
     <!-- footer -->
-    <footer class="container fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 p-5">
+    <footer class=" fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 p-5">
         <!-- current year added with js -->
         <p class="col-md-4 mb-0 bold "><span id="footer-year"></span></p>
         <!-- footer logo -->

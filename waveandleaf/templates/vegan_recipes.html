@@ -1,9 +1,10 @@
 <!-- use base.html as the template of this page, present navigation bar and footer-->
 {% extends "base.html" %}
+{% set body_class = 'sea-green-background' %}
 {% block content %}
 <div>
     <!-- recipes -->
-    <div class="row m-5">
+    <div class="row mt-5">
         <!-- page title -->
         <h1 class="text-center m-3">Vegan Recipes</h1>
         {% for recipe in vegan_recipes %}
