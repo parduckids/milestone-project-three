@@ -37,3 +37,28 @@
 .img-fluid {
     margin-bottom: 10px;
 }
+
+/* make  Select2 dropdown mobile-responsive */
+@media screen and (max-width: 768px) {
+    /* change width of Select2 dropdown container */
+    .select2-container {
+        width: 100% !important;
+    }
+
+    /* change width of Select2 dropdown */
+    .select2-dropdown {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .select2-results__option {
+        white-space: normal !important;
+        word-wrap: break-word;
+    }
+}
+/* apply responsive styles for Select2 dropdown */
+@media screen and (max-width: 1399px) {
+    .select2-container {
+        width: 100% !important; 
+    }
+}
