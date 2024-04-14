@@ -1,9 +1,29 @@
 <!-- use base.html as the template of this page, present navigation bar and footer-->
 {% extends "base.html" %}
 {% block content %}
-<div>
-    <!-- test if it's working -->
-    <h1>It's working</h1>
+<div class="container home-page">
+    <div class="categories">
+        <div class="row text-center">
+            <h1 class="main-text">Choose your preference:</h1>
+            <div class="col-12 col-md-4">
+                <a href="{{ url_for('vegan_recipes') }}" class="d-block">
+                    <img src="{{url_for('static', filename='images/vegan.png')}}" alt="Vegan Food Category Icon" class="rounded-circle img-fluid" style="width: 300px; height: 300px;">
+                    <h3 class="dark-green">Vegan</h3>
+                </a>
+            </div>
+            <div class="col-12 col-md-4">
+                <a href="{{ url_for('vegetarian_recipes') }}" class="d-block">
+                    <img src="{{url_for('static', filename='images/vegetarian.png')}}" alt="Vegetarian Food Category Icon" class="rounded-circle img-fluid" style="width: 300px; height: 300px;">
+                    <h3 class="light-green">Vegetarian</h3>
+                </a>
+            </div>
+            <div class="col-12 col-md-4">
+                <a href="{{ url_for('pescatarian_recipes') }}" class="d-block">
+                    <img src="{{url_for('static', filename='images/pescatarian.png')}}" alt="Pescatarian Food Category Icon" class="rounded-circle img-fluid" style="width: 300px; height: 300px;">
+                    <h3 class="dark-blue">Pescatarian</h3>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
-
 {% endblock %}
