@@ -1,7 +1,7 @@
 import os
 from flask import render_template, request, jsonify, session, flash, redirect, url_for
 from waveandleaf import app, db
-from waveandleaf.models import User, Category, Recipe, DifficultyLevel
+from waveandleaf.models import User, Category, Recipe, DifficultyLevel, CategoryName
 # import bcrypt flask extension that provides bcrypt hashing utilities
 from flask_bcrypt import Bcrypt
 
@@ -12,11 +12,54 @@ def home():
 
 # _________________________ CRUD ______________________________
 
-# upload recipe page (C)
-@app.route('/upload-recipe')
+@app.route('/upload-recipe', methods=['GET', 'POST'])
 def upload_recipe():
     if not is_logged_in():
         return redirect(url_for('home'))
+    
+    if request.method == 'POST':
+        # get user_id from session
+        user_id = session.get('user_id')
+        if not user_id:
+            flash('Your session has expired, please log in again.')
+            return redirect(url_for('login'))
+        # use the data from the form
+        title = request.form['title']
+        category_id = request.form['category_id']
+        difficulty = request.form['difficulty']
+        cooking_time = request.form['cooking_time']
+        servings = request.form['servings']
+        description = request.form['description']
+        ingredients = request.form['ingredients']
+        preparation_steps = request.form['preparation_steps']
+        # this will be working with multiple selections
+        allergens = request.form.getlist('allergens')
+        image_url = request.form['image_url']
+
+        # create new recipe db instance
+        new_recipe = Recipe(
+            title=title,
+            category_id=category_id,
+            difficulty=difficulty,
+            cooking_time=cooking_time,
+            servings=servings,
+            description=description,
+            ingredients=ingredients,
+            preparation_steps=preparation_steps,
+            # store allergens as a comma-separated string
+            allergens=", ".join(allergens), 
+            image_url=image_url,
+            user_id=session['user_id']
+        )
+
+        # add to the session and commit to the database
+        db.session.add(new_recipe)
+        db.session.commit()
+
+        # todo: redirect to the recipe that's been created
+        flash('Recipe uploaded successfully!')
+        return redirect(url_for('home'))
+    
     return render_template("upload-recipe.html")
 
 

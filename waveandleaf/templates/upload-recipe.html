@@ -9,7 +9,7 @@
         <div class="row w-100 m-0 justify-content-center mt-5 mb-5">
             <div class="col submit-recipe" style="max-width: 100vw;">
                 <div class="text-background-upload p-5 shadow" style="border-radius: 15px;">
-                    <form>
+                    <form method="POST" action="{{ url_for('upload_recipe') }}">
                         <h3 class="mb-4">Submit Your Recipe</h3>
                         <div class="row">
                             <!-- recipe title -->
@@ -25,9 +25,9 @@
                                     <label for="recipeCategory" class="form-label">Recipe Category</label>
                                     <select class="form-select" id="recipeCategory" name="category_id" required>
                                         <option selected>Choose...</option>
-                                        <option value="Vegan">Vegan</option>
-                                        <option value="Vegetarian">Vegetarian</option>
-                                        <option value="Pescatarian">Pescatarian</option>
+                                        <option value="1">Vegan</option>
+                                        <option value="2">Vegetarian</option>
+                                        <option value="3">Pescatarian</option>
                                     </select>
                                 </div>
                             </div>
