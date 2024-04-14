@@ -59,6 +59,8 @@ class Recipe(db.Model):
     uploaded_time = db.Column(db.DateTime, default=datetime.utcnow)
     edited_time = db.Column(db.DateTime, onupdate=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    # username is added to present it on the recipes with 'created by'
+    user = db.relationship("User", backref="user_recipes")
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
     # allergens as a comma-separated list
     allergens = db.Column(db.String(255))  

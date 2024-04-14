@@ -13,8 +13,8 @@ def home():
 @app.route('/vegan')
 def vegan_recipes():
     category = Category.query.filter_by(name=CategoryName.Vegan).first()
-    recipes = Recipe.query.filter_by(category_id=category.id).all()
-    return render_template('vegan_recipes.html', recipes=recipes)
+    vegan_recipes = Recipe.query.filter_by(category_id=1).all()
+    return render_template('vegan_recipes.html', vegan_recipes=vegan_recipes)
 
 @app.route('/vegetarian')
 def vegetarian_recipes():
