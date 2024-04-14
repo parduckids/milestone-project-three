@@ -15,7 +15,15 @@ def home():
 def about():
     return render_template("about.html")
 
-# categories
+# recipe page
+# this will present any recipe depending on recipe id
+@app.route('/recipe/<int:recipe_id>')
+def recipe(recipe_id):
+    # get the recipe from the database using the recipe ID
+    recipe = Recipe.query.get_or_404(recipe_id)
+    
+    # pass the recipe data to the recipe template
+    return render_template('recipe.html', recipe=recipe)
 
 # vegan category page
 @app.route('/vegan')

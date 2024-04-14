@@ -13,7 +13,7 @@
           // no need for advanced options
           showAdvancedOptions: false,
           // cropping enabled
-          cropping: true,
+          cropping: false,
           // no multiple image upload allowed
           multiple: false,
           defaultSource: "local",

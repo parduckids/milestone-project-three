@@ -26,8 +26,8 @@
                         {% endif %}
                     </small></p>
                     <p class="card-text">Created by: {{recipe.user.username}}</p>
-                    <!-- todo: forward user to the actual recipe page  -->
-                    <a href="#" class="btn btn-primary">Go to the recipe</a>
+                    <!-- forward user to the actual recipe page  -->
+                    <a href="{{ url_for('recipe', recipe_id=recipe.id) }}" class="btn btn-primary">Go to the recipe</a>
                 </div>
             </div>
         </div>

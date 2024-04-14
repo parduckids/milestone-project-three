@@ -1,0 +1,54 @@
+<!-- use base.html as the template of this page, present navigation bar and footer-->
+{% extends "base.html" %}
+<!-- todo: set bg class depending on recipe category -->
+{% set body_class = 'light-green-background' %}
+{% block content %}
+
+<!-- Recipe content -->
+
+
+<div class="container-fluid p-0 mt-5">
+    <h1 class="text-center recipe-title">{{ recipe.title }}</h1>
+    <div class="row g-0 side-by-side">
+        <div class="col-md-6">
+                <img style="width: 100%;" src="{{recipe.image_url}}" alt="">
+
+
+        </div>
+        <!-- load recipe details from db -->
+        <div class="col-md-6 d-flex align-items-center">
+            <div class="text-background">
+                <h3>Let's start making {{ recipe.title }}</h3>
+                <p class="lead">{{recipe.difficulty}}</p>
+                <p>Creator: <b>{{recipe.user.username}}</b></p>
+                <p>Uploaded on: {% if recipe.edited_time %}
+                    {{ recipe.edited_time.strftime('%Y-%m-%d %H:%M') }}
+                    {% else %}
+                    {{ recipe.uploaded_time.strftime('%Y-%m-%d %H:%M') }}
+                    {% endif %}</p>
+                <p>Last Edited: {% if recipe.edited_time %}
+                    {{ recipe.edited_time.strftime('%Y-%m-%d %H:%M') }}
+                    {% else %}
+                    {{ recipe.uploaded_time.strftime('%Y-%m-%d %H:%M') }}
+                    {% endif %}</p>
+                <p>Recipe Description:<br>{{ recipe.description }}</p>
+                <h2>Recipe Guide</h2>
+                <h3>Ingredients</h3>
+                <ul>
+                    {% for ingredient in recipe.ingredients.split('\n') %}
+                    <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+                <h2>Preparation Steps</h2>
+                <ol>
+                    {% for step in recipe.preparation_steps.split('\n') %}
+                    <li>{{ step }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
