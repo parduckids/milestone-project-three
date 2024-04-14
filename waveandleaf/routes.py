@@ -10,8 +10,28 @@ from flask_bcrypt import Bcrypt
 def home():
     return render_template("home.html")
 
+@app.route('/vegan')
+def vegan_recipes():
+    category = Category.query.filter_by(name=CategoryName.Vegan).first()
+    recipes = Recipe.query.filter_by(category_id=category.id).all()
+    return render_template('vegan_recipes.html', recipes=recipes)
+
+@app.route('/vegetarian')
+def vegetarian_recipes():
+    category = Category.query.filter_by(name=CategoryName.Vegetarian).first()
+    recipes = Recipe.query.filter_by(category_id=category.id).all()
+    return render_template('vegetarian_recipes.html', recipes=recipes)
+
+@app.route('/pescatarian')
+def pescatarian_recipes():
+    category = Category.query.filter_by(name=CategoryName.Pescatarian).first()
+    recipes = Recipe.query.filter_by(category_id=category.id).all()
+    return render_template('pescatarian_recipes.html', recipes=recipes)
+
+
 # _________________________ CRUD ______________________________
 
+# create
 @app.route('/upload-recipe', methods=['GET', 'POST'])
 def upload_recipe():
     if not is_logged_in():
@@ -61,6 +81,11 @@ def upload_recipe():
         return redirect(url_for('home'))
     
     return render_template("upload-recipe.html")
+
+
+# update
+
+# delete
 
 
 # _________________________ CRUD ENDS ______________________________
