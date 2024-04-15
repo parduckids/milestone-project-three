@@ -97,12 +97,14 @@ $(document).ready(function () {
                 $('#welcomeMessage').show();
                 $('#usernameSpan').text(response.username);
                 $('#uploadRecipeButton').show();
+                $('#myRecipesButton').show();
             } else {
                 $('#registerButton').show();
                 $('#loginButton').show();
                 $('#logoutButton').hide();
                 $('#welcomeMessage').hide();
                 $('#uploadRecipeButton').hide();
+                $('#myRecipesButton').hide();
             }
         });
     }

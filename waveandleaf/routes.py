@@ -25,6 +25,19 @@ def recipe(recipe_id):
     # pass the recipe data to the recipe template
     return render_template('recipe.html', recipe=recipe)
 
+# my recipes page
+@app.route('/my-recipes')
+def my_recipes():
+    if not is_logged_in():
+        return redirect(url_for('home'))
+    
+    # get recipes that the current user created
+    user_id = session['user_id']
+    user_recipes = Recipe.query.filter_by(user_id=user_id).all()
+    
+    return render_template('my_recipes.html', user_recipes=user_recipes)
+
+
 # vegan category page
 @app.route('/vegan')
 def vegan_recipes():
