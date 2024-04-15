@@ -107,9 +107,8 @@ def upload_recipe():
         db.session.add(new_recipe)
         db.session.commit()
 
-        # todo: redirect to the recipe that's been created
-        flash('Recipe uploaded successfully!')
-        return redirect(url_for('home'))
+        # display a js confirmation popup and redirect to home from there
+        return render_template("upload-success.html")
     
     return render_template("upload-recipe.html")
 
@@ -117,6 +116,26 @@ def upload_recipe():
 # update
 
 # delete
+
+@app.route('/delete_recipe/<int:recipe_id>', methods=['POST'])
+def delete_recipe(recipe_id):
+    if not is_logged_in():
+        return redirect(url_for('home'))
+    
+    # get the recipe to delete
+    recipe = Recipe.query.get_or_404(recipe_id)
+    
+    # check if the current user owns the recipe
+    if recipe.user_id != session['user_id']:
+        flash('You do not have permission to delete this recipe.')
+        return redirect(url_for('my_recipes'))
+    
+    # delete the recipe
+    db.session.delete(recipe)
+    db.session.commit()
+    
+    flash('Recipe deleted successfully!')
+    return redirect(url_for('my_recipes'))
 
 
 # _________________________ CRUD ENDS ______________________________

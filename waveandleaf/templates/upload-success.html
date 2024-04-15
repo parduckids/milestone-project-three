@@ -1,0 +1,21 @@
+<!-- upload-success.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Success</title>
+    <script>
+        // display a confirmation popup
+        window.onload = function() {
+            var confirmed = window.confirm("Recipe uploaded successfully! You can edit or delete it under the My Recipes page.");
+            if (confirmed) {
+                // redirect to the home page
+                window.location.href = "{{ url_for('home') }}";
+            }
+        }
+    </script>
+</head>
+<body class="default-body-class">
+</body>
+</html>
