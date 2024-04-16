@@ -16,7 +16,9 @@
         <!-- load recipe details from db -->
         <div class="col-md-6 ">
             <div class="text-background">
-                <h3 >Let's start making {{ recipe.title }}</h3>
+                <h3 >Let's start making <span style="font-weight: 700;">{{ recipe.title }}</span></h3>
+                <!-- todo: change allergens to fontawesome icons -->
+                <p><b>Allergens:</b> {{ recipe.allergens }}</p>
                 <p class="lead"><strong style="font-weight: 700;">{{recipe.difficulty.value}}</strong></p>
                 <p>Creator: <b>{{recipe.user.username}}</b></p>
                 <p>Uploaded on: {% if recipe.edited_time %}
