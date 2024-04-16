@@ -1,0 +1,96 @@
+<!-- edit-recipe.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="container px-0 ur" style="margin-top: 100px; margin-bottom: 100px;">
+    <div class="row w-100 m-0 justify-content-center">
+        <div class="col submit-recipe" style="max-width: 100vw;">
+            <div class="recipe-form-wrapper text-background-upload p-5 shadow" style="border-radius: 15px;">
+                <form method="POST" onsubmit="return confirm('Are you sure you want to update this recipe?');">
+                    <h3 class="mb-4">Edit Recipe</h3>
+                    <div class="row">
+                        <!-- recipe title -->
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label for="recipeTitle" class="form-label">Recipe Title</label>
+                                <input type="text" class="form-control" id="recipeTitle" name="title" value="{{ recipe.title }}" required>
+                            </div>
+                        </div>
+                        <!-- recipe category -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="recipeCategory" class="form-label">Recipe Category</label>
+                                <select class="form-select" id="recipeCategory" name="category_id" required>
+                                    <option value="1" {% if recipe.category_id == 1 %}selected{% endif %}>Vegan</option>
+                                    <option value="2" {% if recipe.category_id == 2 %}selected{% endif %}>Vegetarian</option>
+                                    <option value="3" {% if recipe.category_id == 3 %}selected{% endif %}>Pescatarian</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- recipe difficulty -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="recipeDifficulty" class="form-label">Recipe Difficulty</label>
+                                <select class="form-select" id="recipeDifficulty" name="difficulty" required>
+                                    <option value="Easy" {% if recipe.difficulty == 'Easy' %}selected{% endif %}>Easy</option>
+                                    <option value="Medium" {% if recipe.difficulty == 'Medium' %}selected{% endif %}>Medium</option>
+                                    <option value="Hard" {% if recipe.difficulty == 'Hard' %}selected{% endif %}>Hard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- cooking time -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="recipeCookingTime" class="form-label">Cooking Time</label>
+                                <input type="text" class="form-control" id="recipeCookingTime" name="cooking_time" value="{{ recipe.cooking_time }}" required>
+                            </div>
+                        </div>
+                        <!-- servings -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="recipeServings" class="form-label">Servings</label>
+                                <input type="number" class="form-control" id="recipeServings" name="servings" value="{{ recipe.servings }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- recipe description -->
+                    <div class="mb-3">
+                        <label for="recipeDescription" class="form-label">Recipe Description</label>
+                        <textarea class="form-control" id="recipeDescription" name="description" rows="3" required>{{ recipe.description }}</textarea>
+                    </div>
+                    <!-- ingredients -->
+                    <div class="mb-3">
+                        <label for="recipeIngredients" class="form-label">Ingredients</label>
+                        <textarea class="form-control" id="recipeIngredients" name="ingredients" rows="3" required>{{ recipe.ingredients }}</textarea>
+                    </div>
+                    <!-- instructions -->
+                    <div class="mb-3">
+                        <label for="recipeInstructions" class="form-label">Instructions</label>
+                        <textarea class="form-control" id="recipeInstructions" name="preparation_steps" rows="5" required>{{ recipe.preparation_steps }}</textarea>
+                    </div>
+                    <!-- allergens -->
+                    <div class="mb-3">
+                        <label for="recipeAllergens" class="form-label">Allergens</label>
+                        <select multiple class="form-select" id="recipeAllergens" name="allergens" required>
+                            {% for allergen in ['Crustaceans', 'Eggs', 'Fish', 'Peanuts', 'Soybeans', 'Milk', 'Nuts', 'Celery', 'Mustard', 'Sesame', 'Sulfites', 'Lupin', 'Molluscs'] %}
+                            <option value="{{ allergen }}" {% if allergen in recipe.allergens.split(', ') %}selected{% endif %}>{{ allergen }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <!-- recipe Image -->
+                    <div class="mb-3">
+                        <label for="recipeImage" class="form-label">Recipe Image</label>
+                        <p><small>Unfortunatelly it's not possible to upload a new image with the widget, but feel free to change the image link!</small></p>
+                        <input type="text" class="form-control" id="recipeImage" name="image_url" value="{{ recipe.image_url }}" required>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="w-100 text-center">
+                        <button type="submit" class="btn btn-primary py-3" style="width: 40%;" >Update Recipe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

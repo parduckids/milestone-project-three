@@ -114,6 +114,38 @@ def upload_recipe():
 
 
 # update
+# edit recipe
+@app.route('/edit-recipe/<int:recipe_id>', methods=['GET', 'POST'])
+def edit_recipe(recipe_id):
+    if not is_logged_in():
+        return redirect(url_for('home'))
+    
+    # fetch the recipe from the database
+    recipe = Recipe.query.get_or_404(recipe_id)
+    
+    if request.method == 'POST':
+        # update the recipe details with the form submission
+        recipe.title = request.form['title']
+        recipe.category_id = request.form['category_id']
+        recipe.difficulty = request.form['difficulty']
+        recipe.cooking_time = request.form['cooking_time']
+        recipe.servings = request.form['servings']
+        recipe.description = request.form['description']
+        recipe.ingredients = request.form['ingredients']
+        recipe.preparation_steps = request.form['preparation_steps']
+        # update allergens as a comma-separated string
+        recipe.allergens = ", ".join(request.form.getlist('allergens'))
+        recipe.image_url = request.form['image_url']
+        
+        # commit the changes to the database
+        db.session.commit()
+
+        # redirect to the My Recipes page
+        return redirect(url_for('my_recipes'))
+
+    # load the edit recipe template with the recipe details
+    return render_template('edit-recipe.html', recipe=recipe)
+
 
 # delete
 
