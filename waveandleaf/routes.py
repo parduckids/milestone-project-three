@@ -123,6 +123,11 @@ def edit_recipe(recipe_id):
     # fetch the recipe from the database
     recipe = Recipe.query.get_or_404(recipe_id)
     
+    # todo: alert for user, no permission to edit this
+    # check if the current user owns the recipe
+    if recipe.user_id != session['user_id']:
+        return redirect(url_for('my_recipes'))
+    
     if request.method == 'POST':
         # update the recipe details with the form submission
         recipe.title = request.form['title']
@@ -156,7 +161,7 @@ def delete_recipe(recipe_id):
     
     # get the recipe to delete
     recipe = Recipe.query.get_or_404(recipe_id)
-    
+    # todo: alert the user, no permission to delete
     # check if the current user owns the recipe
     if recipe.user_id != session['user_id']:
         flash('You do not have permission to delete this recipe.')
