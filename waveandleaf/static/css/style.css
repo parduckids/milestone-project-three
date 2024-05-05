@@ -30,6 +30,49 @@
     background-size: inherit;
     background-repeat: no-repeat;
 }
+/* custom design for buttons */
+.btn-info {
+    background-color: var(--deep-blue) !important ;
+    border-color: var(--deep-blue) !important ;
+    color: white !important;
+}
+.btn-info:hover{
+    filter: brightness(0.9) !important;
+}
+.btn-success {
+    background-color: var(--deep-blue) !important ;
+    border-color: var(--deep-blue) !important ;
+    color: white !important;
+}
+.btn-success:hover{
+    filter: brightness(0.9) !important;
+}
+.btn-warning {
+    background-color: var(--sea-green) !important ;
+    border-color: var(--sea-green) !important ;
+    color: white !important;
+}
+.btn-warning:hover{
+    filter: brightness(0.9) !important;
+}
+
+.btn-primary {
+    background-color: var(--light-green) !important ;
+    border-color: var(--light-green) !important ;
+    color: white !important;
+}
+.btn-primary:hover{
+    filter: brightness(0.9) !important;
+}
+
+.btn-outline-success {
+    border-color: var(--sea-green) !important ;
+    color: var(--sea-green) !important;
+}
+.btn-outline-success:hover {
+    background-color: var(--sea-green) !important ;
+    color: white !important;
+}
 /* home */
 .home-page {
     display: flex;
