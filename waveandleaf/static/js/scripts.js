@@ -17,6 +17,7 @@ $('#recipeAllergens').select2({
 
 // once the page is loaded successfully
 $(document).ready(function () {
+
     checkLoginStatus();
     // use ajax post request to the /register route that's created with flask
     $('#registrationModal .btn-success').click(function () {
@@ -31,16 +32,25 @@ $(document).ready(function () {
             },
             // hide modal and show alert if successful registration
             success: function (response) {
-                alert(response.message);
+                Swal.fire({
+                    title: response.message,
+                    icon: "success"
+                });
                 $('#registrationModal').modal('hide');
             },
             error: function (xhr, status, error) {
                 // check if responseJSON is defined, use jsonified message that flask sends
                 if (xhr.responseJSON && xhr.responseJSON.error) {
-                    alert(xhr.responseJSON.error);
+                    Swal.fire({
+                        title: xhr.responseJSON.error,
+                        icon: "error"
+                    });
                 } else {
                     // general error message or parse the status or error thrown by jQuery
-                    alert('Failed to register: ' + error);
+                    Swal.fire({
+                        title: 'Failed to register: ' + error,
+                        icon: "error"
+                    });
                 }
             }
         });
@@ -58,34 +68,55 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $('#loginModal').modal('hide');
+                // add confirmation
+                Swal.fire({
+                    title: response.message,
+                    icon: "success"
+                });
                 // call this function to update UI based on login status
                 checkLoginStatus();
 
             },
             error: function (xhr) {
                 if (xhr.responseJSON && xhr.responseJSON.error) {
-                    alert(xhr.responseJSON.error);
+                    Swal.fire({
+                        title: xhr.responseJSON.error,
+                        icon: "error"
+                    });
+                    
                 } else {
-                    alert('Login failed: ' + xhr.statusText);
+                    Swal.fire({
+                        title: 'Login failed: ' + xhr.statusText,
+                        icon: "error"
+                    });
+
                 }
             }
         });
     });
 
     // log out function, when logout button clicked use the flask /logout route to log out 
-    $('#logoutButton').click(function () {
-        $.ajax({
-            type: 'POST',
-            url: '/logout',
-            success: function(data) {
-                window.location.href = data.redirect;  // Redirect to the URL provided by the server
-                alert("Logged out successfully!");
-            },
-            error: function() {
-                alert('Logout failed. Please try again.');
-            }
-        });
+$('#logoutButton').click(function () {
+    $.ajax({
+        type: 'POST',
+        url: '/logout',
+        success: function(data) {
+            Swal.fire({
+                title: "Logged out successfully!",
+                icon: "success"
+            }).then((result) => {
+                // redirect to the URL provided by the server after user alert
+                window.location.href = data.redirect;
+            });
+        },
+        error: function() {
+            Swal.fire({
+                title: "Logout failed. Please try again.",
+                icon: "error"
+            });
+        }
     });
+});
 
     // modify the ui depending on if the user is logged in or not
     function checkLoginStatus() {

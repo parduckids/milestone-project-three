@@ -124,6 +124,7 @@ def edit_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
     
     # todo: alert for user, no permission to edit this
+    return jsonify({'error': 'You have no permission to edit this'}), 403
     # check if the current user owns the recipe
     if recipe.user_id != session['user_id']:
         return redirect(url_for('my_recipes'))
@@ -162,6 +163,7 @@ def delete_recipe(recipe_id):
     # get the recipe to delete
     recipe = Recipe.query.get_or_404(recipe_id)
     # todo: alert the user, no permission to delete
+    return jsonify({'error': 'You have no permission to delete this'}), 403
     # check if the current user owns the recipe
     if recipe.user_id != session['user_id']:
         flash('You do not have permission to delete this recipe.')
@@ -205,7 +207,7 @@ def register():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({'message': 'Registered successfully. Please login.'}), 201
+    return jsonify({'message': 'Registered successfully. \n Please login.'}), 201
 
 # login
 # create route for /login which will be triggered by the login button using js
