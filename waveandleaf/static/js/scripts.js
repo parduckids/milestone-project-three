@@ -1,3 +1,23 @@
+// loading screen
+showLoading()
+// show loading overlay
+function showLoading() {
+    document.getElementById('loading-overlay').style.display = 'block';
+}
+
+// hide loading overlay
+function hideLoading() {
+    // Fade out the loading overlay
+    $('#loading-overlay').fadeOut('slow');
+}
+
+// listen for the page load event
+window.addEventListener('load', function() {
+    // hide loading overlay when the page has finished loading
+    hideLoading();
+});
+
+
 // get the current year
 const currentYear = new Date().getFullYear();
 

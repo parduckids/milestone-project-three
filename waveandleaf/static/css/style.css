@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* main colors */
 :root {
     --deep-blue: #496989;
@@ -5,80 +7,94 @@
     --light-green: #A8CD9F;
     --pale-green: #E2F4C5;
 }
+body{
+    font-family: "Poppins", sans-serif !important;
+}
 
 /* default body class styling */
 .default-body-class {
-    
-    background-image: url('../images/pale-green.jpg'); 
+
+    background-image: url('../images/pale-green.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 /* specific background for deep-blue-background class */
 .deep-blue-background {
-    background-image: url('../images/deep-blue.jpg'); 
+    background-image: url('../images/deep-blue.jpg');
     background-size: inherit;
     background-repeat: no-repeat;
 }
+
 .light-green-background {
-    background-image: url('../images/light-green.jpg'); 
+    background-image: url('../images/light-green.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 .sea-green-background {
-    background-image: url('../images/sea-green.jpg'); 
+    background-image: url('../images/sea-green.jpg');
     background-size: inherit;
     background-repeat: no-repeat;
 }
+
 /* custom design for buttons */
 .btn-info {
-    background-color: var(--deep-blue) !important ;
-    border-color: var(--deep-blue) !important ;
+    background-color: var(--deep-blue) !important;
+    border-color: var(--deep-blue) !important;
     color: white !important;
 }
-.btn-info:hover{
+
+.btn-info:hover {
     filter: brightness(0.9) !important;
 }
+
 .btn-success {
-    background-color: var(--deep-blue) !important ;
-    border-color: var(--deep-blue) !important ;
+    background-color: var(--deep-blue) !important;
+    border-color: var(--deep-blue) !important;
     color: white !important;
 }
-.btn-success:hover{
+
+.btn-success:hover {
     filter: brightness(0.9) !important;
 }
+
 .btn-warning {
-    background-color: var(--sea-green) !important ;
-    border-color: var(--sea-green) !important ;
+    background-color: var(--sea-green) !important;
+    border-color: var(--sea-green) !important;
     color: white !important;
 }
-.btn-warning:hover{
+
+.btn-warning:hover {
     filter: brightness(0.9) !important;
 }
 
 .btn-primary {
-    background-color: var(--light-green) !important ;
-    border-color: var(--light-green) !important ;
+    background-color: var(--light-green) !important;
+    border-color: var(--light-green) !important;
     color: white !important;
 }
-.btn-primary:hover{
+
+.btn-primary:hover {
     filter: brightness(0.9) !important;
 }
 
 .btn-outline-success {
-    border-color: var(--sea-green) !important ;
+    border-color: var(--sea-green) !important;
     color: var(--sea-green) !important;
 }
+
 .btn-outline-success:hover {
-    background-color: var(--sea-green) !important ;
+    background-color: var(--sea-green) !important;
     color: white !important;
 }
+
 /* home */
 .home-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 120px); 
+    height: calc(100vh - 120px);
     overflow: auto;
 }
 
@@ -106,8 +122,16 @@ a {
 
 .main-text {
     color: var(--deep-blue);
+    font-weight: 300;
 }
-
+.bubble:hover{
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    transition: all 0.2s;
+}
+.bubble{
+    transition: all 0.2s;
+}
 .text-background-categories {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
@@ -135,10 +159,29 @@ a {
 .dark-green {
     color: var(--sea-green);
 }
+
+/* loading screen */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none; 
+    z-index: 9999;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /* navigation */
 
 .navbar {
-    background-color: rgba(255, 255, 255, 0.8)!important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .navbar-brand img {
@@ -146,7 +189,7 @@ a {
 }
 
 .nav-link {
-    font-weight: 700 !important;
+    font-weight: 500 !important;
     color: var(--deep-blue) !important;
 }
 
@@ -186,6 +229,7 @@ a {
 
 /* make  Select2 dropdown mobile-responsive */
 @media screen and (max-width: 768px) {
+
     /* change width of Select2 dropdown container */
     .select2-container {
         width: 100% !important;
@@ -202,23 +246,24 @@ a {
         word-wrap: break-word;
     }
 }
+
 /* apply responsive styles for Select2 dropdown */
 @media screen and (max-width: 1399px) {
     .select2-container {
-        width: 100% !important; 
+        width: 100% !important;
     }
 }
 
 /* footer */
-footer{
-    background-color: rgba(255, 255, 255, 0.8)!important;
+footer {
+    background-color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* upload recipe */
-.recipe-form-wrapper{
-    background-color: rgba(255, 255, 255, 0.8)!important;
+.recipe-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.8) !important;
     margin-bottom: 100px;
-    margin-top:50px;
+    margin-top: 50px;
 }
 
 .recipe-hero {
@@ -289,4 +334,3 @@ footer{
         border-radius: 15px;
     }
 }
-
