@@ -8,9 +8,9 @@ document.getElementById("footer-year").textContent = "© " + currentYear + " Wav
 
 $('#recipeAllergens').select2({
     // setting the placeholder when no option is selected
-    placeholder: "Choose allergens contained in this recipe", 
+    placeholder: "Choose allergens contained in this recipe",
     // clear the placeholder once there is an option selected
-    allowClear: true 
+    allowClear: true
 });
 
 // modal auth
@@ -83,7 +83,7 @@ $(document).ready(function () {
                         title: xhr.responseJSON.error,
                         icon: "error"
                     });
-                    
+
                 } else {
                     Swal.fire({
                         title: 'Login failed: ' + xhr.statusText,
@@ -96,27 +96,27 @@ $(document).ready(function () {
     });
 
     // log out function, when logout button clicked use the flask /logout route to log out 
-$('#logoutButton').click(function () {
-    $.ajax({
-        type: 'POST',
-        url: '/logout',
-        success: function(data) {
-            Swal.fire({
-                title: "Logged out successfully!",
-                icon: "success"
-            }).then((result) => {
-                // redirect to the URL provided by the server after user alert
-                window.location.href = data.redirect;
-            });
-        },
-        error: function() {
-            Swal.fire({
-                title: "Logout failed. Please try again.",
-                icon: "error"
-            });
-        }
+    $('#logoutButton').click(function () {
+        $.ajax({
+            type: 'POST',
+            url: '/logout',
+            success: function (data) {
+                Swal.fire({
+                    title: "Logged out successfully!",
+                    icon: "success"
+                }).then((result) => {
+                    // redirect to the URL provided by the server after user alert
+                    window.location.href = data.redirect;
+                });
+            },
+            error: function () {
+                Swal.fire({
+                    title: "Logout failed. Please try again.",
+                    icon: "error"
+                });
+            }
+        });
     });
-});
 
     // modify the ui depending on if the user is logged in or not
     function checkLoginStatus() {

@@ -107,10 +107,12 @@
                             <div class="form-text" id="uploadStatusText">
                                 Click the button to upload your recipe image. For best results, please ensure the image is sized at 1024x1024 pixels.
                             </div>
-                            <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%; height: auto; display: none;" />
+                            <div class="uploaded-image-container" style="max-width: 400px; margin: 0 auto;">
+                                <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%; height: auto; display: none;">
+                            </div>
                         </div>
                         <div class="w-100 text-center">
-                            <button type="submit" class="btn btn-primary py-3" style="width: 40%;" onsubmit="return confirm('Are you sure you want to upload this recipe? You can edit or delete it under the My Recipes page.');">Submit Recipe</button>
+                            <button type="submit" class="btn btn-primary py-3" style="width: 35%;" onsubmit="return confirm('Are you sure you want to upload this recipe? You can edit or delete it under the My Recipes page.');"><span style="font-size: 25px;">Submit Recipe</span></button>
                         </div>
                         
                     </form>

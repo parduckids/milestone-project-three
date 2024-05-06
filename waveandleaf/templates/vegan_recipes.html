@@ -15,8 +15,13 @@
                 <div class="card-body">
                     <!-- todo: add recipe title -->
                     <h5 class="card-title">{{recipe.title}}</h5>
-                    <!-- todo: restrict recipe description so all the cards are the same size  -->
-                    <p class="card-text">{{recipe.description}}</p>
+                    <!-- restrict recipe description so all the cards are the same size  -->
+                    {% if recipe.description|length > 75 %}
+                    <p class="card-text">
+                        {{ recipe.description[:75] }}{% if recipe.description|length > 75 %}...{% endif %}</p>
+                    {% else %}
+                    <p class="card-text">{{ recipe.description }}</p>
+                    {% endif %}
                     <!-- if the recipe wasn't edited before, use the upload time instead -->
                     <p class="card-text"><small class="text-body-secondary">Last updated: 
                         {% if recipe.edited_time %}

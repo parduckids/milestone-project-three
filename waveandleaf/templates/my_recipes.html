@@ -14,8 +14,14 @@
                 <div class="card-body">
                     <!-- recipe title -->
                     <h5 class="card-title">{{recipe.title}}</h5>
-                    <!-- todo: restrict recipe description so all the cards are the same size  -->
-                    <p class="card-text">{{recipe.description}}</p>
+                    <!-- restrict recipe description so all the cards are the same size  -->
+                    {% if recipe.description|length > 75 %}
+                    <p class="card-text">
+                        {{ recipe.description[:75] }}{% if recipe.description|length > 75 %}...{% endif %}</p>
+                    {% else %}
+                    <p class="card-text">{{ recipe.description }}</p>
+                    {% endif %}
+
                     <!-- if the recipe wasn't edited before, use the upload time instead -->
                     <p class="card-text"><small class="text-body-secondary">Last updated:
                             {% if recipe.edited_time %}
@@ -26,17 +32,20 @@
                         </small></p>
                     <p class="card-text">Created by: {{recipe.user.username}}</p>
                     <!-- forward user to the actual recipe page  -->
-                    <a href="{{ url_for('recipe', recipe_id=recipe.id) }}" class="btn btn-warning w-100 my-2">Go to the recipe</a>
+                    <a href="{{ url_for('recipe', recipe_id=recipe.id) }}" class="btn btn-warning w-100 my-2">Go to the
+                        recipe</a>
                     <div class="row">
                         <!-- todo: implement delete function for the button -->
                         <div class="col-md-6">
-                            <form action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this recipe?');">
+                            <form action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" method="post"
+                                onsubmit="return confirm('Are you sure you want to delete this recipe?');">
                                 <button type="submit" class="btn btn-danger w-100 my-2">Delete</button>
                             </form>
                         </div>
                         <!-- todo: implement edit function for the button -->
                         <div class="col-md-6">
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn btn-primary w-100 my-2">Edit</a>
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}"
+                                class="btn btn-primary w-100 my-2">Edit</a>
                         </div>
                     </div>
                 </div>
