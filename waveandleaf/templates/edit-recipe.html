@@ -72,7 +72,7 @@
                     <!-- allergens -->
                     <div class="mb-3">
                         <label for="recipeAllergens" class="form-label">Allergens</label>
-                        <select multiple class="form-select" id="recipeAllergens" name="allergens" required>
+                        <select multiple class="form-select" id="recipeAllergens" name="allergens">
                             {% for allergen in ['Crustaceans', 'Eggs', 'Fish', 'Peanuts', 'Soybeans', 'Milk', 'Nuts', 'Celery', 'Mustard', 'Sesame', 'Sulfites', 'Lupin', 'Molluscs'] %}
                             <option value="{{ allergen }}" {% if allergen in recipe.allergens.split(', ') %}selected{% endif %}>{{ allergen }}</option>
                             {% endfor %}
