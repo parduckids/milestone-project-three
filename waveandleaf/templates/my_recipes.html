@@ -2,12 +2,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-    <div class="row mt-5 mb-5" style="padding-bottom: 50px;">
+    <div class="row mt-5 mb-5" style="padding-bottom: 75px;">
         <h1 class="text-center m-3">Check out your recipes!</h1>
         <p class="text-center mb-4">You can edit or delete any of these... </p>
 
         {% for recipe in user_recipes %}
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
             <!-- using bootstrap cards for presenting the recipes -->
             <div class="card">
                 <img src="{{recipe.image_url}}" class="card-img-top recipe-image" alt="...">
