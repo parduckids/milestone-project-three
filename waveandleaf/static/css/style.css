@@ -15,27 +15,27 @@ body{
 .default-body-class {
 
     background-image: url('../images/pale-green.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: inherit;
+    background-repeat: repeat-y;
 }
 
 /* specific background for deep-blue-background class */
 .deep-blue-background {
     background-image: url('../images/deep-blue.jpg');
     background-size: inherit;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
 }
 
 .light-green-background {
     background-image: url('../images/light-green.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: inherit;
+    background-repeat: repeat-y;
 }
 
 .sea-green-background {
     background-image: url('../images/sea-green.jpg');
     background-size: inherit;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
 }
 
 /* custom design for buttons */

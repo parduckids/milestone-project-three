@@ -2,11 +2,12 @@
 {% extends "base.html" %}
 {% set body_class = 'sea-green-background' %}
 {% block content %}
-<div>
+<div class="m-3">
     <!-- recipes -->
     <div class="row mt-5 text-background">
         <!-- page title -->
         <h1 class="text-center m-3 dark-green">Vegan Recipes</h1>
+        {% if vegan_recipes %}
         {% for recipe in vegan_recipes %}
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
             <!-- using bootstrap cards for presenting the recipes -->
@@ -40,6 +41,13 @@
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        <div class="col-12 p-5 dark-green text-center container">
+            <h2>No recipes at the moment, please come back later or upload some yourself!</h2>
+            <img style="width: 20vw;" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExazRxMTdsM2gybHhzNGRxMzRta2MyazdkY3ZjZGhmeTdqZTd5dzd4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fCcxQhlgfyVliJqfGN/giphy.gif" alt="carrot looking around animated image">
+        </div>
+        {% endif %}
+
     </div>
 </div>
 
