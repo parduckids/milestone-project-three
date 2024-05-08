@@ -282,6 +282,14 @@ footer {
     padding: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+/* footer icon */
+.github-icon:hover{
+    filter:contrast(200%);
+    transition: all 0.2s;
+}
+.github-icon{
+    transition: all 0.2s;
+}
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
