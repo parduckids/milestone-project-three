@@ -1,11 +1,11 @@
 <!-- use base.html as the template of this page, present navigation bar and footer-->
 {% extends "base.html" %}
 {% block content %}
-<div>
+<div style="padding-bottom: 75px;">
 
     <!-- upload recipe -->
 
-    <div class="container px-0 ur">
+    <div class="container mt-5 mb-5  px-0 ur">
         <div class="row w-100 m-0 justify-content-center">
             <div class="col submit-recipe" style="max-width: 100vw;">
                 <div class=" recipe-form-wrapper text-background-upload p-5 shadow" style="border-radius: 15px;">
@@ -103,7 +103,6 @@
                             <button type="button" id="upload_widget" class="btn-warning btn">Upload Image</button>
                             <!-- hidden input for the image url that will be populated by cloudinary -->
                             <input type="hidden" id="recipeImageURL" name="image_url" required>
-                            <!-- dynamic form text changing depending on the status of the image upload  -->
                             <div class="form-text" id="uploadStatusText">
                                 Click the button to upload your recipe image. For best results, please ensure the image is sized at 1024x1024 pixels.
                             </div>

@@ -103,7 +103,7 @@ $(document).ready(function () {
                         title: xhr.responseJSON.error,
                         icon: "error"
                     });
-
+            
                 } else {
                     Swal.fire({
                         title: 'Login failed: ' + xhr.statusText,
@@ -159,4 +159,14 @@ $(document).ready(function () {
             }
         });
     }
+    // add sweetalert error message when a recipe is not available using url params
+    const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error') === 'norecipe') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'The recipe you are looking for does not exist!'
+            });
+        }
+
 });

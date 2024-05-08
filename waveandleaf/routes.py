@@ -20,7 +20,11 @@ def about():
 @app.route('/recipe/<int:recipe_id>')
 def recipe(recipe_id):
     # get the recipe from the database using the recipe ID
-    recipe = Recipe.query.get_or_404(recipe_id)
+    recipe = Recipe.query.get(recipe_id)
+    # if no recipe return error
+    if recipe is None:
+        return redirect(url_for('home', error='norecipe')) 
+
     
     # pass the recipe data to the recipe template
     return render_template('recipe.html', recipe=recipe)
@@ -121,12 +125,30 @@ def edit_recipe(recipe_id):
         return redirect(url_for('home'))
     
     # fetch the recipe from the database
-    recipe = Recipe.query.get_or_404(recipe_id)
-    
-    # todo: alert for user, no permission to edit this
+    recipe = Recipe.query.get(recipe_id)
+    # if no recipe, return error
+    if recipe is None:
+        return redirect(url_for('home', error='norecipe')) 
+
     # check if the current user owns the recipe
     if recipe.user_id != session['user_id']:
-        return redirect(url_for('my_recipes'))
+        # include SweetAlert in the HTML response
+        edit_alert_script = """
+        <script>
+            window.onload = function() {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'You do not have permission to edit this recipe.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                    window.location.href = '/';
+                });
+            }
+        </script>
+        """
+        return render_template('home.html', recipe=recipe, edit_alert_script=edit_alert_script)
+    
     
     if request.method == 'POST':
         # update the recipe details with the form submission
@@ -160,18 +182,17 @@ def delete_recipe(recipe_id):
         return redirect(url_for('home'))
     
     # get the recipe to delete
-    recipe = Recipe.query.get_or_404(recipe_id)
+    recipe = Recipe.query.get(recipe_id)
+
     # todo: alert the user, no permission to delete
     # check if the current user owns the recipe
     if recipe.user_id != session['user_id']:
-        flash('You do not have permission to delete this recipe.')
         return redirect(url_for('my_recipes'))
     
     # delete the recipe
     db.session.delete(recipe)
     db.session.commit()
     
-    flash('Recipe deleted successfully!')
     return redirect(url_for('my_recipes'))
 
 
