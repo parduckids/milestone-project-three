@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div style="padding-bottom: 75px;">
-    <div class="row mt-5 mb-5 text-background text-center" >
+    <div class="row text-background text-center" >
         
         <h1 class="text-center mt-3">Your recipes</h1>
         {% if user_recipes %}
@@ -57,9 +57,9 @@
         </div>
         {% endfor %}
         {% else %}
-        <div class="col-12 p-3 text-center container">
-            <h3><em>The kitchen's too quiet! Share your recipes and stir things up!</em>  </h3>
-            <img style="width: 20vw; " class="mt-4" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnBldXprYTh3bzZqMXZtNnA3YWdyNDhiYXQwYmJzbThucXBudWszYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cVEXOfep3GDMIJQn9y/giphy.gif" alt="empty plate animated image">
+        <div class="col-12 p3 text-center container no-recipes">
+            <h3 class=""><em>The kitchen's too quiet! Share your recipes and stir things up!</em>  </h3>
+            <img  class="mt-4" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnBldXprYTh3bzZqMXZtNnA3YWdyNDhiYXQwYmJzbThucXBudWszYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cVEXOfep3GDMIJQn9y/giphy.gif" alt="empty plate animated image">
             
         </div>
         {% endif %}

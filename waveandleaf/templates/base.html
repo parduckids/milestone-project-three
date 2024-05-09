@@ -22,11 +22,12 @@
 
 <body class="{{ body_class | default('default-body-class', true) }}">
     <div id="loading-overlay" class="loading-overlay">
-        <img src="{{url_for('static', filename='images/loading-elipsis-loadingio.gif')}}" alt="Loading..." class="loading-spinner">
+        <img src="{{url_for('static', filename='images/loading-elipsis-loadingio.gif')}}" alt="Loading..."
+            class="loading-spinner">
     </div>
     <header>
         <!-- mobile responsive bootstrap navigation -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
                 <!-- navigation logo -->
                 <a class="navbar-brand" href="{{ url_for('home') }}"><img
@@ -163,18 +164,21 @@
     </main>
 
     <!-- footer -->
-    <footer class=" fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 p-5">
-        <!-- current year added with js -->
-        <p class="col-md-4 mb-0 bold dark-blue "><span id="footer-year"></span></p>
-        <!-- footer logo -->
-        <a href="/"
-            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-            <img class="w-50" src="{{url_for('static', filename='images/logo-ts.png')}}" alt="Wave and Leaf logo">
-        </a>
-        <!-- footer social icons -->
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3 github-icon"><a class="text-muted" href="https://github.com/parduckids" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a></li>
-        </ul>
+    <footer class="text-center fixed-bottom">
+        <div class="container footer  d-flex flex-wrap align-items-center py-3 p-5">
+            <!-- current year added with js -->
+            <p class="col-lg-4 mb-0 bold dark-blue "><span id="footer-year"></span></p>
+            <!-- footer logo -->
+            <a href="/"
+                class="col-lg-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                <img class="w-50" src="{{url_for('static', filename='images/logo-ts.png')}}" alt="Wave and Leaf logo">
+            </a>
+            <!-- footer social icons -->
+            <ul class="nav col-lg-4 list-unstyled">
+                <li class="ms-3 github-icon"><a class="text-muted" href="https://github.com/parduckids"
+                        target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a></li>
+            </ul>
+        </div>
     </footer>
     <!-- footer ends -->
 

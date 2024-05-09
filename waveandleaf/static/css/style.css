@@ -94,7 +94,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 120px);
+    height: auto;
     overflow: auto;
 }
 
@@ -327,7 +327,6 @@ footer {
     }
 }
 
-/* Mobile View: */
 @media (max-width: 767px) {
     .recipe-hero {
         height: 40vh;
@@ -342,4 +341,252 @@ footer {
     .text-background {
         border-radius: 15px;
     }
+    
 }
+
+/* Responsive styling */
+
+/* styles for very small devices (smaller phones) */
+@media only screen and (max-width: 400px) {
+    .navbar-nav li, .navbar-nav li button{
+        margin-left: 0 !important;
+        margin-bottom: 2px;
+    }
+    #welcomeMessage{
+        padding-bottom: 5px;
+        padding-top: 5px;
+        font-size: 1.1em;
+    }
+    .navbar-brand img{
+        height: 40px;
+    }
+    .footer{
+        justify-content: center !important;
+    }
+    .footer ul {
+        justify-content: center !important;
+    }
+    .text-background{
+        margin-top: 10% !important;
+        margin-bottom:15% !important
+    }
+    .about-wrapper{
+        margin-bottom: 60.5%;
+    }
+    .recipe-title{
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .no-recipes img{
+        width: 50vw;
+    }
+    .home-page{
+        padding-top: 15%;
+        padding-bottom: 55%;
+    }
+    .bubble a img{
+        width: 200px !important;
+        height: 200px !important;
+    }
+}
+/* styles for extra small devices like phones */
+@media only screen and (min-width: 401px) and (max-width: 600px) {
+    .navbar-nav li, .navbar-nav li button{
+        margin-left: 0 !important;
+        margin-bottom: 2px;
+    }
+    #welcomeMessage{
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 1.2em;
+    }
+    .footer{
+        justify-content: center !important;
+    }
+    .footer ul {
+        justify-content: center !important;
+    }
+    .text-background{
+        margin-top: 10% !important;
+        margin-bottom:20% !important
+    }
+    .uploadedit{
+        width: 70%;
+    }
+    .recipe-form-wrapper{
+        padding: 1rem;
+    }
+    .about-wrapper{
+        margin-bottom: 55.5%;
+    }
+    .recipe-title{
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    .no-recipes img{
+        width: 40vw;
+    }
+    .home-page{
+        padding-top: 15%;
+        padding-bottom: 45%;
+    }
+    .bubble a img{
+        width: 200px !important;
+        height: 200px !important;
+    }
+
+}
+/* styles for small devices (larger phones, small tablets) */
+@media only screen and (min-width: 601px) and (max-width: 767px) {
+    .navbar-nav li, .navbar-nav li button{
+        margin-left: 0 !important;
+        margin-bottom: 2px;
+    }
+    #welcomeMessage{
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 1.2em;
+    }
+    .footer{
+        justify-content: center !important;
+    }
+    .footer ul {
+        justify-content: center !important;
+    }
+    .text-background{
+        margin-top: 10% !important;
+        margin-bottom:20% !important
+    }
+    .uploadedit{
+        width: 65%;
+    }
+    .recipe-form-wrapper{
+        padding: 2rem;
+    }
+    .about-wrapper{
+        margin-bottom: 42.5%;
+    }
+    .recipe-title{
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    .no-recipes img{
+        width: 35vw;
+    }
+    .home-page{
+        padding-top: 15%;
+        padding-bottom: 35%;
+    }
+}
+/* styles for medium devices (small tablets, large tablets) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .navbar-nav li, .navbar-nav li button{
+        margin-left: 0 !important;
+        margin-bottom: 2px;
+    }
+    #welcomeMessage{
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 1.2em;
+    }
+    .footer{
+        justify-content: center !important;
+    }
+    .footer ul {
+        justify-content: center !important;
+    }
+    .text-background{
+        margin-top: 10% !important;
+        margin-bottom:15% !important
+    }
+    .uploadedit{
+        width: 55%;
+    }
+    .recipe-form-wrapper{
+        padding: 3rem;
+    }
+    .about-wrapper{
+        margin-bottom: 20.5%;
+    }
+    .recipe-title{
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .no-recipes img{
+        width: 30vw;
+    }
+    .home-page{
+        padding-top: 15%;
+        padding-bottom: 15%;
+    }
+}
+/* styles for large devices (small laptops/desktops) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .footer{
+        justify-content: space-between !important;
+    }
+    .footer ul {
+        justify-content: end !important;
+    }
+    .text-background{
+        margin-top: 10% !important;
+        margin-bottom:10% !important
+    }
+    .uploadedit{
+        width: 200px;
+    }
+    .recipe-form-wrapper{
+        padding: 3rem;
+    }
+    .about-wrapper{
+        margin-bottom: 10.5%;
+    }
+    .recipe-title{
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .no-recipes img{
+        width: 25vw;
+    }
+    .home-page{
+        padding-top: 15%;
+        padding-bottom: 10%;
+    }
+}
+/* styles for extra large devices (large laptops and desktops) */
+@media only screen and (min-width: 1200px) {
+    .footer{
+        justify-content: space-between !important;
+    }
+    .footer ul {
+        justify-content: end !important;
+    }
+    .text-background{
+        margin-top: 10% !important;
+        margin-bottom:10% !important
+    }
+    .uploadedit{
+        width: 200px;
+    }
+    .recipe-form-wrapper{
+        padding: 3rem;
+    }
+    .about-wrapper{
+        margin-bottom: 5%;
+    }
+    .recipe-title{
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .no-recipes img{
+        width: 300px;
+    }
+    .home-page{
+        padding-top: 15%;
+        padding-bottom: 10%;
+    }
+}
+
+/* Responsive styling ends  */
+
+
