@@ -1,0 +1,21 @@
+<!-- use base.html as the template of this page, present navigation bar and footer-->
+{% extends "base.html" %}
+<!-- dynamic title block from base.html -->
+{% block title %}Wave & Leaf - Page not found{% endblock %}
+{% block content %}
+<div class="container text-center p-3">
+    <div class="text-background-recipe">
+        <h1>404 - Page Not Found</h1>
+        <p>Sorry, the page you are looking for does not exist.</p>
+        <img style="width: 70%; margin-bottom:20px;"
+            src="https://cdn.dribbble.com/users/388048/screenshots/2752831/nspcc_dribbble1.gif"
+            alt="Empty fridge 404 gif">
+    </div>
+    <!-- fixed space -->
+    <div style="height: 50px !important;"></div>
+
+
+</div>
+
+
+{% endblock %}

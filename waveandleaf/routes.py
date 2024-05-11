@@ -268,3 +268,11 @@ def logout():
 
 
 # _________________________ authentication ends ______________________________
+
+
+# 404
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # Note the 404 status explicitly supplied
+    return render_template('404.html'), 404
