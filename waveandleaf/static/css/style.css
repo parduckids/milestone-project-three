@@ -107,6 +107,8 @@ body{
 
 a {
     text-decoration: none !important;
+    color: black;
+
 }
 
 .solid-bg {

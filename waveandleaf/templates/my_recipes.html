@@ -4,18 +4,28 @@
 {% block title %}Wave & Leaf - My recipes{% endblock %}
 {% block content %}
 <div style="padding-bottom: 75px;">
-    <div class="row text-background text-center" >
-        
+    <div class="row text-background text-center">
+
         <h1 class="text-center mt-3">Your recipes</h1>
         {% if user_recipes %}
         <p class="text-center mb-4">You can edit or delete any of these!</p>
-        
+
         {% for recipe in user_recipes %}
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
             <!-- using bootstrap cards for presenting the recipes -->
             <div class="card">
                 <img src="{{recipe.image_url}}" class="card-img-top recipe-image" alt="{{recipe.title}}">
                 <div class="card-body">
+                    <!-- add category names -->
+                    <p class="card-title">
+                        {% if recipe.category_id == 1 %}
+                        <a class="btn btn-warning" href="{{ url_for('vegan_recipes') }}">Vegan</a>
+                        {% elif recipe.category_id == 2 %}
+                        <a class="btn btn-primary" href="{{ url_for('vegetarian_recipes') }}">Vegetarian</a>
+                        {% elif recipe.category_id == 3 %}
+                        <a class="btn btn-info" href="{{ url_for('pescatarian_recipes') }}">Pescatarian</a>
+                        {% endif %}
+                    </p>
                     <!-- recipe title -->
                     <h5 class="card-title">{{recipe.title}}</h5>
                     <!-- restrict recipe description so all the cards are the same size  -->
@@ -43,7 +53,8 @@
                     <div class="row">
                         <!-- todo: implement delete function for the button -->
                         <div class="col-md-6">
-                            <form class="deleteForm" action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" method="post">
+                            <form class="deleteForm" action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}"
+                                method="post">
                                 <button type="submit" class="btn btn-danger w-100 my-2">Delete</button>
                             </form>
                         </div>
@@ -59,12 +70,14 @@
         {% endfor %}
         {% else %}
         <div class="col-12 p3 text-center container no-recipes">
-            <h3 class=""><em>The kitchen's too quiet! Share your recipes and stir things up!</em>  </h3>
-            <img  class="mt-4" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnBldXprYTh3bzZqMXZtNnA3YWdyNDhiYXQwYmJzbThucXBudWszYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cVEXOfep3GDMIJQn9y/giphy.gif" alt="empty plate animated image">
-            
+            <h3 class=""><em>The kitchen's too quiet! Share your recipes and stir things up!</em> </h3>
+            <img class="mt-4"
+                src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnBldXprYTh3bzZqMXZtNnA3YWdyNDhiYXQwYmJzbThucXBudWszYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cVEXOfep3GDMIJQn9y/giphy.gif"
+                alt="empty plate animated image">
+
         </div>
         {% endif %}
-        
+
     </div>
 </div>
 {% endblock %}
