@@ -1,21 +1,26 @@
 <!-- upload-success.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Success</title>
-    <script>
-        // display a confirmation popup
-        window.onload = function() {
-            var confirmed = window.confirm("Recipe uploaded successfully! You can edit or delete it under the My Recipes page.");
-            if (confirmed) {
+
+<!-- use base.html as the template of this page, present navigation bar and footer-->
+{% extends "base.html" %}
+<!-- dynamic title block from base.html -->
+{% block title %}Wave & Leaf - Success{% endblock %}
+{% block content %}
+<script>
+    // display a confirmation popup
+    window.onload = function () {
+        Swal.fire({
+            title: 'Success!',
+            text: 'Recipe uploaded successfully! You can edit or delete it under the My Recipes page.',
+            icon: 'success',
+            confirmButtonColor: '#496989',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
                 // redirect to the home page
                 window.location.href = "{{ url_for('home') }}";
             }
-        }
+        });
+
+    }
     </script>
-</head>
-<body class="default-body-class">
-</body>
-</html>
+{% endblock %}

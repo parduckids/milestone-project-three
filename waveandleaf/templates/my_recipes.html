@@ -43,8 +43,7 @@
                     <div class="row">
                         <!-- todo: implement delete function for the button -->
                         <div class="col-md-6">
-                            <form action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" method="post"
-                                onsubmit="return confirm('Are you sure you want to delete this recipe?');">
+                            <form class="deleteForm" action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" method="post">
                                 <button type="submit" class="btn btn-danger w-100 my-2">Delete</button>
                             </form>
                         </div>

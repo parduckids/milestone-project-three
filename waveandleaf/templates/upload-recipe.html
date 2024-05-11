@@ -7,11 +7,11 @@
 
     <!-- upload recipe -->
 
-    <div class="container   px-0 ur">
+    <div class="container px-0 ur">
         <div class="row w-100 m-0 justify-content-center">
             <div class="col submit-recipe" style="max-width: 100vw;">
                 <div class=" recipe-form-wrapper text-background-upload shadow" style="border-radius: 15px;">
-                    <form method="POST" action="{{ url_for('upload_recipe') }}">
+                    <form method="POST" class="uploadForm" action="{{ url_for('upload_recipe') }}">
                         <h3 class="mb-4">Submit Your Recipe</h3>
                         <div class="row">
                             <!-- recipe title -->
@@ -113,7 +113,7 @@
                             </div>
                         </div>
                         <div class="w-100 text-center">
-                            <button type="submit" class="btn btn-primary py-3 uploadedit" onsubmit="return confirm('Are you sure you want to upload this recipe? You can edit or delete it under the My Recipes page.');"><span style="font-size: 17px;">Submit Recipe</span></button>
+                            <button type="submit" class="btn btn-primary py-3 uploadedit"><span style="font-size: 17px;">Submit Recipe</span></button>
                         </div>
                         
                     </form>

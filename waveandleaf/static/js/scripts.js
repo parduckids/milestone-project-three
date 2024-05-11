@@ -169,4 +169,69 @@ $(document).ready(function () {
             });
         }
 
+        // delete recipe alert for myrecipes page:
+        $('.deleteForm').on('submit', function(e) {
+            e.preventDefault(); // Prevent the form from submitting through HTML form submission
+            var form = this; // 'this' refers to the form element
+    
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'Do you want to delete this recipe?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#496989',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit(); // Submit the form programmatically
+                }
+            });
+        });
+
+        // edit recipe alert for edit recipe page:
+        $('.editForm').on('submit', function(e) {
+            e.preventDefault(); // Prevent the form from submitting through HTML form submission
+            var form = this; // 'this' refers to the form element
+    
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'Do you want to save the changes for this recipe?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#496989',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, save the changes!',
+                cancelButtonText: 'No, cancel!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit(); // Submit the form programmatically
+                }
+            });
+        });
+
+        // upload recipe alert for upload recipe page:
+        $('.uploadForm').on('submit', function(e) {
+            e.preventDefault(); // Prevent the form from submitting through HTML form submission
+            var form = this; // 'this' refers to the form element
+    
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'Do you want to upload this recipe?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#496989',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, upload it now!',
+                cancelButtonText: 'No, cancel!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit(); // Submit the form programmatically
+                }
+            });
+        });
+
 });
+
+
