@@ -111,6 +111,10 @@ a {
 
 }
 
+/* overwrite sweetalert button color */
+.swal2-confirm{
+    background-color: var(--light-green) !important;
+}
 .solid-bg {
     background-color: var(--pale-green) !important;
     background-image: none !important;
