@@ -276,3 +276,9 @@ def logout():
 def page_not_found(e):
     # Note the 404 status explicitly supplied
     return render_template('404.html'), 404
+
+# 405
+
+@app.errorhandler(405)
+def method_not_allowed(e):
+    return render_template('405.html'), 405

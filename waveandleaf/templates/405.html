@@ -1,0 +1,36 @@
+<!-- use base.html as the template of this page, present navigation bar and footer-->
+{% extends "base.html" %}
+<!-- dynamic title block from base.html -->
+{% block title %}Wave & Leaf - Method not allowed{% endblock %}
+{% block content %}
+<div class="container text-center p-3">
+    <div class="text-background-recipe">
+        <h1>Method not allowed</h1>
+        <p>Sorry, you are doing something that you don't supposed to.</p>
+        <p>You will be redirected to the home page in <span id="countdown">3</span> seconds.</p>
+    <script>
+        // seconds for HTML
+        var seconds = 3; 
+        var countdown = document.getElementById("countdown");
+
+        function updateCountdown() {
+            seconds--;
+            countdown.innerText = seconds;
+            if (seconds <= 0) {
+                // redirect using JavaScript
+                window.location.href = "/"; 
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+        <p><a class="btn btn-info" href="{{ url_for('home') }}">Return Home</a></p>
+    </div>
+    <!-- fixed space -->
+    <div style="height: 100px !important;"></div>
+
+
+</div>
+
+
+{% endblock %}
