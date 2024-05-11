@@ -3,7 +3,7 @@
 <!-- todo: set bg class depending on recipe category -->
 {% set body_class = 'light-green-background' %}
 <!-- dynamic title block from base.html -->
-{% block title %}Recipe: {{ recipe.title }}{% endblock %}
+{% block title %}W & L Recipe: {{ recipe.title }}{% endblock %}
 {% block content %}
 
 <!-- Recipe content -->
@@ -17,7 +17,7 @@
         </div>
         <!-- load recipe details from db -->
         <div class="col-md-6 ">
-            <div class="text-background">
+            <div class="text-background-recipe">
                 <h3 ><span style="font-weight: 700;">{{ recipe.title }}</span></h3>
                 <!-- todo: change allergens to fontawesome icons -->
                 {% if recipe.allergens != "" %}
@@ -40,7 +40,7 @@
         </div>
         <div class="col-md-12 mt-3">
             <h2>Recipe Guide</h2>
-            <div class="text-background">
+            <div class="text-background-recipe extra-margin">
                 <h3>Ingredients</h3>
                 <ul>
                     {% for ingredient in recipe.ingredients.split(',') %}

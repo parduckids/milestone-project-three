@@ -276,6 +276,7 @@ footer {
 
 
 .text-background-upload,
+.text-background-recipe,
 .text-background {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
@@ -366,9 +367,19 @@ footer {
     .footer ul {
         justify-content: center !important;
     }
+    .footer p {
+        justify-content: center !important;
+    }
     .text-background{
         margin-top: 10% !important;
         margin-bottom:15% !important
+    }
+    .text-background-recipe{
+        margin-top: 5% !important;
+        margin-bottom:2.5% !important
+    }
+    .extra-margin{
+        margin-bottom: 10% !important;
     }
     .about-wrapper{
         margin-bottom: 60.5%;
@@ -406,9 +417,19 @@ footer {
     .footer ul {
         justify-content: center !important;
     }
+    .footer p {
+        justify-content: center !important;
+    }
     .text-background{
         margin-top: 10% !important;
         margin-bottom:20% !important
+    }
+    .text-background-recipe{
+        margin-top: 5% !important;
+        margin-bottom:2.5% !important
+    }
+    .extra-margin{
+        margin-bottom: 15% !important;
     }
     .uploadedit{
         width: 70%;
@@ -453,9 +474,19 @@ footer {
     .footer ul {
         justify-content: center !important;
     }
+    .footer p {
+        justify-content: center !important;
+    }
     .text-background{
         margin-top: 10% !important;
         margin-bottom:20% !important
+    }
+    .text-background-recipe{
+        margin-top: 5% !important;
+        margin-bottom:2.5% !important
+    }
+    .extra-margin{
+        margin-bottom: 10% !important;
     }
     .uploadedit{
         width: 65%;
@@ -495,6 +526,9 @@ footer {
     .footer ul {
         justify-content: center !important;
     }
+    .footer p {
+        justify-content: center !important;
+    }
     .text-background{
         margin-top: 10% !important;
         margin-bottom:15% !important
@@ -528,6 +562,9 @@ footer {
     .footer ul {
         justify-content: end !important;
     }
+    .footer p {
+        justify-content: start !important;
+    }
     .text-background{
         margin-top: 10% !important;
         margin-bottom:10% !important
@@ -560,6 +597,9 @@ footer {
     }
     .footer ul {
         justify-content: end !important;
+    }
+    .footer p {
+        justify-content: start !important;
     }
     .text-background{
         margin-top: 10% !important;

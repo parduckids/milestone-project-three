@@ -22,7 +22,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='images/apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='images/favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="">
-    <link rel="manifest" href="{{url_for('static', filename='images/site.webmanifest')}}">
     <!-- title -->
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -171,7 +170,7 @@
     </main>
 
     <!-- footer -->
-    <footer class="text-center fixed-bottom">
+    <footer class=" fixed-bottom">
         <div class="container footer  d-flex flex-wrap align-items-center py-3 p-5">
             <!-- current year added with js -->
             <p class="col-lg-4 mb-0 bold dark-blue "><span id="footer-year"></span></p>
