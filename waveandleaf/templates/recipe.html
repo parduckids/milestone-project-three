@@ -24,6 +24,8 @@
                 <p><b>Allergens:</b> {{ recipe.allergens }}</p>
                 {% endif %}
                 <p>Difficulty: <strong style="font-weight: 700;">{{recipe.difficulty.value}}</strong></p>
+                <p>Servings: <strong style="font-weight: 700;">{{recipe.servings}}</strong></p>
+                <p>Cooking Time: <strong style="font-weight: 700;">{{recipe.cooking_time}}</strong></p>
                 <p>Creator: <b>{{recipe.user.username}}</b></p>
                 <p>Uploaded on: {% if recipe.edited_time %}
                     <b>{{ recipe.edited_time.strftime('%Y-%m-%d %H:%M') }}</b>
