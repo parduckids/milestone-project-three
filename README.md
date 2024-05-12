@@ -154,7 +154,7 @@ The website design of "Wave & Leaf" features a soothing palette of sea blues and
     * Log in and Register buttons are present
 ![image](/waveandleaf/static/readme/navbar-mobile-basic.png)
 * Navigation bar on mobile and tablet when the user is logged in:
-    * Log in and Register buttons are hidden, my recipes and upload recipe button and hey 'username' text is present
+    * Log in and Register buttons are hidden, my recipes and upload recipe button and hey 'username' text is present <br>
 ![image](/waveandleaf/static/readme/navbar-mobile-logged-in.png)
 
 ## Footer
@@ -337,7 +337,7 @@ The website design of "Wave & Leaf" features a soothing palette of sea blues and
 **[Cloudinary](https://cloudinary.com/)**
 * Used for a smoother image upload user experience
 
-**[BCrypt](https://pypi.org/project/bcrypt/)
+**[BCrypt](https://pypi.org/project/bcrypt/)**
 * A pip extension for modern password hashing to be used for authentication
 
 
@@ -358,7 +358,7 @@ The website design of "Wave & Leaf" features a soothing palette of sea blues and
 **[EzGif](https://ezgif.com/video-to-gif/)**
 * Used to convert screen recordings to gifs
 
-**[DBDiagram](https://dbdiagram.io/home)
+**[DBDiagram](https://dbdiagram.io/home)**
 * Used for creating a visual database model
 
 
