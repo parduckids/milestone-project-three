@@ -375,7 +375,7 @@ The website design of "Wave & Leaf" features a soothing palette of sea blues and
 * **[Markdown docs](https://www.markdownguide.org/cheat-sheet/)**
 
 # Data Model:
-todo
+![image](/waveandleaf/static/readme/db-model.png)
 # Deployment:
 
 ### Running Locally
