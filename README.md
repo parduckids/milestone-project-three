@@ -1,6 +1,6 @@
 # Wave & Leaf
   * [Live link](https://mp3-waveandleaf-9534ab984761.herokuapp.com/)
-  * [Wireframes]() todo 
+  * [Wireframes](/WIREFRAMES.md)
   * [GitHub Repository](https://github.com/parduckids/milestone-project-three)
   * [Testing docs]() todo testing.md
 
@@ -52,6 +52,7 @@
 - [Credits & Acknowledgements](#credits--acknowledgements)
   * [Credits](#credits)
   * [Acknowledgements](#acknowledgements)
+
 
 # User Experience
 ## User Stories
@@ -275,11 +276,11 @@ The website design of "Wave & Leaf" features a soothing palette of sea blues and
         
     * Wrong username or password: <br>
     <img src="waveandleaf/static/readme/wrong.png" alt="wrong username or password popup" width="300"/>
-        * This message will pop up when the user is trying to log in with wrong credentials
+    * This message will pop up when the user is trying to log in with wrong credentials
 
     * Recipe does not exist: <br>
     <img src="waveandleaf/static/readme/no-recipe.png" alt="recipe does not exist error popup" width="300"/>
-        * This message will pop up when the user is trying get to a recipe that doesn't exist
+    * This message will pop up when the user is trying get to a recipe that doesn't exist
 
 
 
