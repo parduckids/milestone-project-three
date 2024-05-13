@@ -400,13 +400,13 @@ import os
 # Basic application settings and default values
 os.environ.setdefault("IP", "0.0.0.0.")
 os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", "1234")
+os.environ.setdefault("SECRET_KEY", "enter_secret_key")
 os.environ.setdefault("DEBUG", "True")
 os.environ.setdefault("DEVELOPMENT", "True")
 os.environ.setdefault("DB_URL", "postgresql:///waveandleaf")
 
 # bcrypt configuration setting with a default fallback
-os.environ.setdefault("BCRYPT_SECRET_KEY", "default_bcrypt_key")
+os.environ.setdefault("BCRYPT_SECRET_KEY", "enter_secret_key")
 ```
 ## Initial Setup
 - The website is built using the [Code Institute's gitpod template](https://github.com/Code-Institute-Org/gitpod-full-template) provided for this project.
