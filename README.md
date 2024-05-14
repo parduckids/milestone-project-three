@@ -2,7 +2,7 @@
   * [Live link](https://mp3-waveandleaf-9534ab984761.herokuapp.com/)
   * [Wireframes](/WIREFRAMES.md)
   * [GitHub Repository](https://github.com/parduckids/milestone-project-three)
-  * [Testing docs]() todo testing.md
+  * [Testing docs](/TESTING.md)
 
 ![image](/waveandleaf/static/readme/screens.png)
 
@@ -74,7 +74,6 @@
 
 ### Food Enthusiast
 * As a food enthusiast, I want to browse recipes by dietary category and view images associated with each recipe, allowing me to visually select dishes that appeal to me.
-* As a food enthusiast, I want to save my favorite recipes to my account for easy access later.
 
 ### Site Administrator
 * As a site administrator, I want to ensure that users can only perform CRUD (create, read, update, delete) operations on recipes they have uploaded themselves to maintain privacy and control over content.
