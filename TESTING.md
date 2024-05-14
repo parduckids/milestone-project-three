@@ -25,7 +25,6 @@
     + [Navigation & Footer](#navigation-bar-and-footer)
     + [Rest of the site](#rest-of-the-site)
 - [Manual Testing](#manual-testing)
-- [Automated Testing](#automated-testing)
 - [LightHouse Testing](#lighthouse-testing)
 
 
@@ -343,6 +342,23 @@ These issues are minor and do not affect code functionality but should be review
     * ![image](/waveandleaf/static/readme/no-recipe.png)
 
 
-# Automated Testing
-
 # LightHouse Testing
+
+## Both Desktop and Mobile version has been tested for the following:
+
+* Site Performance
+* Accessibility
+* Best Practices
+* Search Engine Optimization
+
+### Desktop: <br>
+![image](/waveandleaf/static/readme/lighthouse-desktop.png)
+### Mobile: <br>
+![image](/waveandleaf/static/readme/lighthouse-mobile.png)
+
+#### Potential Changes for Mobile Optimization
+
+* **Properly Size Images**: Compress and resize images to save 236 KiB.
+* **Eliminate Render-Blocking Resources**: Defer or async load CSS/JS to save around 300 ms.
+
+
