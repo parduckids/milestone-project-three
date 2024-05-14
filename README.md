@@ -274,11 +274,11 @@ The website design of "Wave & Leaf" features a soothing palette of sea blues and
         * An automatic redirect to the home page added with a counter for better user experience
         
     * Wrong username or password: <br>
-    <img src="waveandleaf/static/readme/wrong.png" alt="wrong username or password popup" width="300"/>
+    <img src="waveandleaf/static/readme/wrong.png" alt="wrong username or password popup" width="300"/><br>
     * This message will pop up when the user is trying to log in with wrong credentials
 
     * Recipe does not exist: <br>
-    <img src="waveandleaf/static/readme/no-recipe.png" alt="recipe does not exist error popup" width="300"/>
+    <img src="waveandleaf/static/readme/no-recipe.png" alt="recipe does not exist error popup" width="300"/><br>
     * This message will pop up when the user is trying get to a recipe that doesn't exist
 
 
