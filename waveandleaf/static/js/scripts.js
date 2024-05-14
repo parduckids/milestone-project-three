@@ -12,7 +12,7 @@ function hideLoading() {
 }
 
 // listen for the page load event
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     // hide loading overlay when the page has finished loading
     hideLoading();
 });
@@ -103,7 +103,7 @@ $(document).ready(function () {
                         title: xhr.responseJSON.error,
                         icon: "error"
                     });
-            
+
                 } else {
                     Swal.fire({
                         title: 'Login failed: ' + xhr.statusText,
@@ -125,8 +125,11 @@ $(document).ready(function () {
                     title: "Logged out successfully!",
                     icon: "success"
                 }).then((result) => {
-                    // redirect to the URL provided by the server after user alert
-                    window.location.href = data.redirect;
+                    // check if the user confirmed the SweetAlert
+                    if (result.isConfirmed) {
+                        // redirect to the URL provided by the server after user alert
+                        window.location.href = data.redirect;
+                    }
                 });
             },
             error: function () {
@@ -161,77 +164,75 @@ $(document).ready(function () {
     }
     // add sweetalert error message when a recipe is not available using url params
     const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('error') === 'norecipe') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'The recipe you are looking for does not exist!'
-            });
-        }
-
-        // delete recipe alert for myrecipes page:
-        $('.deleteForm').on('submit', function(e) {
-            e.preventDefault(); // Prevent the form from submitting through HTML form submission
-            var form = this; // 'this' refers to the form element
-    
-            Swal.fire({
-                title: 'Are you sure?',
-                text: 'Do you want to delete this recipe?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#496989',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'No, cancel!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit(); // Submit the form programmatically
-                }
-            });
+    if (urlParams.get('error') === 'norecipe') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'The recipe you are looking for does not exist!'
         });
+    }
 
-        // edit recipe alert for edit recipe page:
-        $('.editForm').on('submit', function(e) {
-            e.preventDefault(); // Prevent the form from submitting through HTML form submission
-            var form = this; // 'this' refers to the form element
-    
-            Swal.fire({
-                title: 'Are you sure?',
-                text: 'Do you want to save the changes for this recipe?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#496989',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, save the changes!',
-                cancelButtonText: 'No, cancel!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit(); // Submit the form programmatically
-                }
-            });
-        });
+    // delete recipe alert for myrecipes page:
+    $('.deleteForm').on('submit', function (e) {
+        e.preventDefault(); // Prevent the form from submitting through HTML form submission
+        var form = this; // 'this' refers to the form element
 
-        // upload recipe alert for upload recipe page:
-        $('.uploadForm').on('submit', function(e) {
-            e.preventDefault(); // Prevent the form from submitting through HTML form submission
-            var form = this; // 'this' refers to the form element
-    
-            Swal.fire({
-                title: 'Are you sure?',
-                text: 'Do you want to upload this recipe?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#496989',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, upload it now!',
-                cancelButtonText: 'No, cancel!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit(); // Submit the form programmatically
-                }
-            });
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Do you want to delete this recipe?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#496989',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit(); // Submit the form programmatically
+            }
         });
+    });
+
+    // edit recipe alert for edit recipe page:
+    $('.editForm').on('submit', function (e) {
+        e.preventDefault(); // Prevent the form from submitting through HTML form submission
+        var form = this; // 'this' refers to the form element
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Do you want to save the changes for this recipe?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#496989',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, save the changes!',
+            cancelButtonText: 'No, cancel!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit(); // Submit the form programmatically
+            }
+        });
+    });
+
+    // upload recipe alert for upload recipe page:
+    $('.uploadForm').on('submit', function (e) {
+        e.preventDefault(); // Prevent the form from submitting through HTML form submission
+        var form = this; // 'this' refers to the form element
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Do you want to upload this recipe?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#496989',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, upload it now!',
+            cancelButtonText: 'No, cancel!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit(); // Submit the form programmatically
+            }
+        });
+    });
 
 });
-
-
