@@ -30,47 +30,47 @@
 
 # User Story Testing
 
-## New Visitor
+### New Visitor
 
-### As a new visitor, I want to easily navigate the website and understand its purpose from the homepage so I can quickly decide if it meets my needs.
+#### As a new visitor, I want to easily navigate the website and understand its purpose from the homepage so I can quickly decide if it meets my needs.
 * The homepage features a welcoming design with three image bubbles representing vegan, vegetarian, and pescatarian recipes. Clicking on these bubbles takes the user to the respective category pages where they can browse recipes. The navigation bar includes links to the Home, About Us, and Recipes pages, as well as Register and Login buttons. The footer contains the current year, app name, logo, and a GitHub link.
 
-### As a new visitor, I want to be able to browse recipes without registering to see if the site has the types of recipes I'm interested in.
+#### As a new visitor, I want to be able to browse recipes without registering to see if the site has the types of recipes I'm interested in.
 * Visitors can browse recipes by clicking on the image bubbles on the homepage or by using the Recipes dropdown in the navigation bar, which offers options for vegan, vegetarian, and pescatarian recipes. These actions lead to category pages displaying recipe cards with titles, images, and brief descriptions.
 
-## Registered User
+### Registered User
 
-### As a registered user, I want to easily register and log in to the site so I can start uploading and managing my recipes.
+#### As a registered user, I want to easily register and log in to the site so I can start uploading and managing my recipes.
 * The Register and Login buttons in the navigation bar trigger popups where users can register or log in using styled SweetAlert2 alerts for confirmation messages. After logging in, the navigation bar updates to replace the Register and Login buttons with Upload Recipe and My Recipes links.
 
-### As a registered user, I want to upload recipes under specific dietary categories (vegan, vegetarian, pescatarian) with details like allergens, difficulty, and cooking time to help others make informed decisions.
+#### As a registered user, I want to upload recipes under specific dietary categories (vegan, vegetarian, pescatarian) with details like allergens, difficulty, and cooking time to help others make informed decisions.
 * The Upload Recipe page features a comprehensive form where users can enter recipe details, including dietary category, allergens, difficulty level, and cooking time. The form also supports image uploads via Cloudinary, allowing users to upload images from their camera, via a link, or by uploading a file.
 
-### As a registered user, I want to edit or delete my recipes after they are posted if I need to update or correct information.
+#### As a registered user, I want to edit or delete my recipes after they are posted if I need to update or correct information.
 * The My Recipes page displays a list of recipes uploaded by the user. Each recipe card includes options to view, edit, or delete the recipe. Users can update the recipe details or remove the recipe entirely, with confirmation alerts ensuring that actions are intentional.
 
-### As a registered user, I want to receive clear confirmation alerts after performing actions (like uploading, editing, or deleting recipes) to ensure that my changes have been successfully applied.
+#### As a registered user, I want to receive clear confirmation alerts after performing actions (like uploading, editing, or deleting recipes) to ensure that my changes have been successfully applied.
 * After performing actions such as uploading, editing, or deleting a recipe, users receive clear confirmation messages via styled SweetAlert2 alerts, confirming the success of their actions.
 
-## Recipe Contributor
+### Recipe Contributor
 
-### As a recipe contributor, I want to include detailed descriptions, ingredients lists, and step-by-step cooking instructions in my recipe uploads to provide clear guidance to others.
+#### As a recipe contributor, I want to include detailed descriptions, ingredients lists, and step-by-step cooking instructions in my recipe uploads to provide clear guidance to others.
 * The recipe upload form allows contributors to provide detailed descriptions, ingredient lists, and step-by-step instructions. These details are displayed on the recipe page, offering clear guidance to other users.
 
-### As a recipe contributor, I need to be able to list my name as the creator and track when my recipes were uploaded or last edited for my own records.
+#### As a recipe contributor, I need to be able to list my name as the creator and track when my recipes were uploaded or last edited for my own records.
 * Each recipe displays the creator's name and includes timestamps for when the recipe was uploaded and last edited. This information is visible on the recipe page and the My Recipes page.
 
-### As a recipe contributor, I want to upload images of my cooking directly from my camera, via a link, or by uploading a file, to share my culinary creations with the community.
+#### As a recipe contributor, I want to upload images of my cooking directly from my camera, via a link, or by uploading a file, to share my culinary creations with the community.
 * The Upload Recipe page supports multiple image upload methods through Cloudinary, including direct uploads from a camera, via a URL, or by file upload. These images are displayed prominently on the recipe page.
 
-## Food Enthusiast
+### Food Enthusiast
 
-### As a food enthusiast, I want to browse recipes by dietary category and view images associated with each recipe, allowing me to visually select dishes that appeal to me.
+#### As a food enthusiast, I want to browse recipes by dietary category and view images associated with each recipe, allowing me to visually select dishes that appeal to me.
 * Users can browse recipes by dietary category through the Recipes dropdown in the navigation bar or by clicking on the image bubbles on the homepage. Each recipe card includes an image, title, and brief description, making it easy to visually select appealing dishes.
 
-## Site Administrator
+### Site Administrator
 
-### As a site administrator, I want to ensure that users can only perform CRUD (create, read, update, delete) operations on recipes they have uploaded themselves to maintain privacy and control over content.
+#### As a site administrator, I want to ensure that users can only perform CRUD (create, read, update, delete) operations on recipes they have uploaded themselves to maintain privacy and control over content.
 * Permissions are in place to ensure that users can only edit or delete their own recipes.
 
 # Compatibility Testing
