@@ -26,6 +26,7 @@
     + [Rest of the site](#rest-of-the-site)
 - [Manual Testing](#manual-testing)
 - [LightHouse Testing](#lighthouse-testing)
+- [Test Accounts](#user-accounts-for-testing)
 
 
 # User Story Testing
@@ -361,4 +362,14 @@ These issues are minor and do not affect code functionality but should be review
 * **Properly Size Images**: Compress and resize images to save 236 KiB.
 * **Eliminate Render-Blocking Resources**: Defer or async load CSS/JS to save around 300 ms.
 
+## User Accounts for Testing
+
+I have set up the following users for testing purposes if needed:
+
+- **Username:** jay | **Password:** jay
+- **Username:** adam | **Password:** adam
+- **Username:** bob | **Password:** bob
+- **Username:** rudi | **Password:** rudi
+
+Feel free to use these accounts and modify the recipes
 

@@ -294,6 +294,7 @@ The website design of "Wave & Leaf" features a soothing palette of sea blues and
  * Recipe sharing feature
  * All Recipes page
  * Favorite Recipes page
+ * Delete accounts, change password and username
 
 ### Development Features
  * Admin control over all recipes
