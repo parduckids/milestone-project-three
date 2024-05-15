@@ -148,7 +148,7 @@ The website design of "Wave & Leaf" features a soothing palette of sea blues and
 * Navigation bar when the user logged in:
     * Log in and Register buttons are hidden, my recipes and upload recipe button and hey 'username' text is present
 ![image](/waveandleaf/static/readme/navbar-logged-in.png)
-* Navigation bar on mobile and tablet:
+* Navigation bar on mobile and tablet:<br>
 ![image](/waveandleaf/static/readme/navbar-mobile.png)
 * Navigation bar on mobile and tablet when the user isn't logged in yet:
     * Log in and Register buttons are present
