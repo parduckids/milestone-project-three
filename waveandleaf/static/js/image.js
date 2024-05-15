@@ -40,8 +40,6 @@ $(document).ready(function () {
       }
     }, (error, result) => {
       if (!error && result && result.event === "success") {
-        // log response
-        console.log('Done! Here is the image info: ', result.info);
         // use the URL generated for the input value
         $('#recipeImageURL').val(result.info.secure_url);
         // display the uploaded image by setting the src of an img element
